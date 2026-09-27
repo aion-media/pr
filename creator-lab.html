@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AION Creator Lab — Партнёрская программа для блогеров</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #060911;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(24, 34, 53, 0.9);
+      --border: rgba(0, 240, 255, 0.14);
+      --border-glow: rgba(0, 240, 255, 0.4);
+      --primary: #00f0ff;
+      --secondary: #a855f7;
+      --accent: #22c55e;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --gradient-text: linear-gradient(135deg, #ffffff 15%, #00f0ff 65%, #a855f7 100%);
+      --gradient-btn: linear-gradient(135deg, #00f0ff 0%, #0284c7 50%, #7c3aed 100%);
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 85px;
+    }
+
+    /* Ambient Background Glows */
+    .bg-blobs {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      opacity: 0.14;
+    }
+    .blob-1 { top: -10%; left: 10%; width: 45vw; height: 45vw; background: #00f0ff; }
+    .blob-2 { top: 40%; right: -10%; width: 40vw; height: 40vw; background: #a855f7; }
+    .blob-3 { bottom: 10%; left: 5%; width: 35vw; height: 35vw; background: #0284c7; }
+
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header Nav */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-badge {
+      background: rgba(0, 240, 255, 0.12);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      color: var(--primary);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .logo-text {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #fff;
+    }
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      background: rgba(0, 240, 255, 0.15);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 35px 0 45px;
+    }
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.12);
+    }
+    .pill-tag span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--primary);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .hero h1 {
+      font-size: clamp(1.65rem, 3.6vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.8px;
+      margin-bottom: 16px;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: clamp(1.02rem, 2.3vw, 1.22rem);
+      font-weight: 500;
+      color: #e2e8f0;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .hero-sub strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .hero p.lead {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 26px;
+      line-height: 1.6;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .hero-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+    }
+    .hero-badge-item svg {
+      width: 15px;
+      height: 15px;
+      color: var(--primary);
+    }
+
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    @media (min-width: 520px) {
+      .cta-group {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    .btn-main {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--gradient-btn);
+      color: #fff;
+      font-size: 1.02rem;
+      font-weight: 700;
+      padding: 15px 30px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(0, 240, 255, 0.3);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      max-width: 320px;
+    }
+    .btn-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(0, 240, 255, 0.45);
+      filter: brightness(1.08);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 0.98rem;
+      font-weight: 600;
+      padding: 15px 26px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.2s;
+      width: 100%;
+      max-width: 320px;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Live Notification Mockup */
+    .hero-mockup {
+      max-width: 520px;
+      margin: 0 auto;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), 0 0 25px rgba(0, 240, 255, 0.08);
+      backdrop-filter: blur(16px);
+      text-align: left;
+    }
+    .mockup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .mockup-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .mockup-badge {
+      font-size: 0.72rem;
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .notification-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-sm);
+      margin-bottom: 7px;
+    }
+    .notif-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .notif-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid rgba(0, 240, 255, 0.18);
+    }
+    .notif-text h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #f8fafc;
+    }
+    .notif-text p {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin: 0;
+    }
+    .notif-amount {
+      text-align: right;
+    }
+    .notif-amount .value {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #4ade80;
+    }
+    .notif-amount .tag {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+    }
+
+    .mockup-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+    .mockup-total-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .mockup-total-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .mockup-total-val span {
+      color: var(--primary);
+    }
+
+    /* ===================================================
+       INTERACTIVE ACCORDION MENU HUB (COMPACT FOLDABLE SITE)
+       =================================================== */
+    .menu-hub-section {
+      padding: 30px 0 50px;
+    }
+    .menu-hub-hint-centered {
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+
+    /* Money Source & 4 Levels Box */
+    .money-source-box {
+      margin-top: 24px;
+      padding: 22px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      border-radius: var(--radius-md);
+      text-align: left;
+    }
+    .money-source-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .money-source-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(0, 240, 255, 0.12);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .money-source-header h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .money-source-header p {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .money-logic-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .logic-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .logic-badge {
+      background: rgba(0, 240, 255, 0.12);
+      color: var(--primary);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 5px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .levels-vertical-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .level-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-sm);
+      transition: all 0.2s;
+    }
+    .level-row:hover {
+      background: rgba(0, 240, 255, 0.04);
+      border-color: rgba(0, 240, 255, 0.2);
+    }
+    .level-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #475569;
+      margin-top: 5px;
+      flex-shrink: 0;
+      box-shadow: 0 0 6px rgba(71, 85, 105, 0.5);
+    }
+    .level-dot.dot-1 {
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+    }
+    .level-info {
+      flex: 1;
+    }
+    .level-header-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+    .level-name {
+      font-size: 0.95rem;
+      color: #fff;
+      font-weight: 700;
+    }
+    .level-tag-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #4ade80;
+      background: rgba(34, 197, 94, 0.12);
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(34, 197, 94, 0.25);
+    }
+    .level-info p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* Accordion Menu List */
+    .accordion-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* Menu Block Cards */
+    .menu-item {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Alternating distinctive colors for each menu item */
+    .menu-item.theme-blue {
+      background: linear-gradient(135deg, rgba(14, 28, 56, 0.8) 0%, rgba(10, 19, 38, 0.7) 100%);
+    }
+    .menu-item.theme-slate {
+      background: linear-gradient(135deg, rgba(20, 30, 48, 0.85) 0%, rgba(13, 20, 34, 0.75) 100%);
+    }
+    .menu-item.theme-indigo {
+      background: linear-gradient(135deg, rgba(24, 24, 58, 0.8) 0%, rgba(15, 17, 39, 0.7) 100%);
+    }
+    .menu-item.theme-cyan {
+      background: linear-gradient(135deg, rgba(12, 34, 52, 0.85) 0%, rgba(8, 23, 36, 0.75) 100%);
+    }
+    .menu-item.theme-purple {
+      background: linear-gradient(135deg, rgba(35, 20, 52, 0.8) 0%, rgba(20, 12, 32, 0.7) 100%);
+    }
+    .menu-item.theme-emerald {
+      background: linear-gradient(135deg, rgba(14, 38, 32, 0.85) 0%, rgba(9, 24, 20, 0.75) 100%);
+    }
+    .menu-item.theme-glow {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
+      border-color: rgba(0, 240, 255, 0.3);
+    }
+
+    .menu-item:hover {
+      border-color: rgba(0, 240, 255, 0.3);
+    }
+    .menu-item.open {
+      border-color: var(--border-glow);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 240, 255, 0.08);
+    }
+
+    /* Accordion Header / Trigger Button */
+    .menu-header {
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .menu-header:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .menu-header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+    }
+    .menu-icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .menu-item.open .menu-icon-box {
+      background: rgba(0, 240, 255, 0.15);
+      border-color: var(--primary);
+      transform: scale(1.05);
+    }
+    .menu-header-text h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .menu-header-text .menu-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+    .menu-arrow {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    .menu-item.open .menu-arrow {
+      transform: rotate(180deg);
+      background: rgba(0, 240, 255, 0.15);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Accordion Body / Expandable Content */
+    .menu-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+      padding: 0 22px;
+    }
+    .menu-item.open .menu-body {
+      max-height: 2500px;
+      padding: 0 22px 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .body-inner {
+      padding-top: 20px;
+    }
+
+    /* ===================================================
+       INNER BLOCK STYLES
+       =================================================== */
+    /* 4 Steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 580px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 820px) {
+      .steps-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .step-card {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--radius-md);
+      padding: 22px 18px;
+      display: flex;
+      flex-direction: column;
+    }
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.05rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .step-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .step-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Comparison Box */
+    .compare-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 720px) {
+      .compare-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .compare-box {
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+    }
+    .compare-old {
+      background: rgba(239, 68, 68, 0.06);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+    .compare-new {
+      background: rgba(0, 240, 255, 0.06);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+    }
+    .compare-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 8px;
+      border-radius: 5px;
+      margin-bottom: 12px;
+    }
+    .compare-old .compare-badge {
+      background: rgba(239, 68, 68, 0.2);
+      color: #f87171;
+    }
+    .compare-new .compare-badge {
+      background: rgba(0, 240, 255, 0.2);
+      color: var(--primary);
+    }
+    .compare-box h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .compare-list {
+      list-style: none;
+    }
+    .compare-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+    .compare-old .compare-list li { color: #94a3b8; }
+    .compare-new .compare-list li { color: #f1f5f9; }
+    .icon-cross { color: #ef4444; font-weight: bold; flex-shrink: 0; }
+    .icon-check { color: #22c55e; font-weight: bold; flex-shrink: 0; }
+
+    /* Categories Grid */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    @media (min-width: 550px) {
+      .cat-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .cat-item {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 12px 10px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .cat-item:hover {
+      background: rgba(0, 240, 255, 0.08);
+      border-color: rgba(0, 240, 255, 0.25);
+    }
+    .cat-emoji { font-size: 1.35rem; margin-bottom: 4px; }
+    .cat-name { font-size: 0.82rem; font-weight: 600; color: #e2e8f0; }
+    .cat-desc { font-size: 0.7rem; color: var(--text-dim); }
+
+    /* Calculator */
+    .calc-slider-wrapper { margin: 16px 0 20px; }
+    .calc-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+    .calc-label-text { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
+    .calc-label-val { font-family: 'JetBrains Mono', monospace; font-size: 1.35rem; font-weight: 800; color: var(--primary); }
+    input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      height: 7px;
+      border-radius: 5px;
+      outline: none;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 0 12px var(--primary);
+    }
+    .calc-results-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 600px) {
+      .calc-results-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .calc-res-item {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--radius-sm);
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .calc-res-item.highlight {
+      background: rgba(0, 240, 255, 0.08);
+      border-color: rgba(0, 240, 255, 0.35);
+    }
+    .calc-res-title { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; }
+    .calc-res-num { font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; font-weight: 800; color: #fff; }
+    .calc-res-item.highlight .calc-res-num { color: #4ade80; font-size: 1.4rem; }
+    .calc-res-sub { font-size: 0.68rem; color: var(--text-dim); margin-top: 2px; }
+    .calc-disclaimer {
+      margin-top: 16px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid var(--primary);
+      border-radius: 4px 8px 8px 4px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Tools Grid (3 Cards) */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 680px) {
+      .tools-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .tool-card {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--radius-md);
+      padding: 20px 18px;
+    }
+    .tool-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+    .tool-card h4 { font-size: 1.02rem; font-weight: 700; margin-bottom: 6px; color: #fff; }
+    .tool-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* FAQ List inside menu */
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
+    .faq-sub-item {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .faq-sub-q {
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: #f1f5f9;
+      user-select: none;
+    }
+    .faq-sub-q:hover { color: var(--primary); }
+    .faq-sub-icon { font-size: 1rem; color: var(--text-muted); transition: transform 0.2s; }
+    .faq-sub-item.active .faq-sub-icon { transform: rotate(45deg); color: var(--primary); }
+    .faq-sub-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 16px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .faq-sub-item.active .faq-sub-a {
+      max-height: 250px;
+      padding: 0 16px 14px;
+    }
+
+    /* Onboarding Instruction inside menu */
+    .inst-steps { display: flex; flex-direction: column; gap: 16px; }
+    .inst-step-item { display: flex; gap: 14px; align-items: flex-start; }
+    .inst-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #05080f;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.88rem;
+    }
+    .inst-info h4 { font-size: 0.98rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .inst-info p { font-size: 0.86rem; color: var(--text-muted); line-height: 1.5; }
+    .btn-app-launch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      padding: 9px 18px;
+      background: rgba(0, 240, 255, 0.12);
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      border-radius: 100px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    .btn-app-launch:hover {
+      background: var(--primary);
+      color: #070a12;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+    }
+
+    /* Final CTA */
+    .final-cta {
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: var(--radius-lg);
+      margin: 30px 0 15px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: radial-gradient(circle at center, rgba(0, 240, 255, 0.09) 0%, rgba(15, 23, 42, 0.5) 80%);
+    }
+    .final-cta h2 {
+      font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+    .final-cta p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 24px;
+    }
+
+    /* Sticky Mobile Bar */
+    .mobile-sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(6, 9, 17, 0.95);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(0, 240, 255, 0.2);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      z-index: 999;
+      box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.6);
+    }
+    .sticky-info { display: flex; flex-direction: column; }
+    .sticky-title { font-size: 0.85rem; font-weight: 700; color: #fff; }
+    .sticky-sub { font-size: 0.72rem; color: #4ade80; }
+    .sticky-btn {
+      background: var(--gradient-btn);
+      color: #fff;
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.35);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 0 10px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="bg-grid"></div>
+
+  <div class="container">
+    
+    <!-- Navigation -->
+    <header class="nav">
+      <a href="#" class="logo">
+        <span class="logo-text">AION</span>
+        <span class="logo-badge">Creator Lab</span>
+      </a>
+      <a href="https://t.me/litt1e_roo" target="_blank" class="nav-btn">
+        Куратор @litt1e_roo
+      </a>
+    </header>
+
+    <!-- HERO SECTION (HOOK & LIVE NOTIFICATIONS) -->
+    <section class="hero">
+      <div class="pill-tag">
+        <span></span> Партнёрская программа для авторов и блогеров
+      </div>
+
+      <h1>Зарабатывай, рекомендуя сервис,<br>которым пользуешься сам</h1>
+      
+      <p class="hero-sub">
+        Тебе больше <strong>не нужны рекламодатели</strong> и бесконечные согласования
+      </p>
+
+      <p class="lead">
+        Один сервис вместо десятков сложных интеграций. <strong>Не обязательно быть крупным супер-блогером</strong> — даже с небольшим уютным блогом (от 100–300 подписчиков) можно легко выйти на стабильный пассивный доход.
+      </p>
+
+      <p class="lead" style="margin-top: 14px; margin-bottom: 28px; color: #cbd5e1;">
+        Порекомендуй Super App AION своей аудитории один раз — и получай пожизненный процент с каждого заказа байка, аренды авто, барбершопа, клининга или виллы в любой точке мира.
+      </p>
+
+      <!-- Live Mockup (~2% commission on services) -->
+      <div class="hero-mockup">
+        <div class="mockup-header">
+          <div class="mockup-title">
+            <span>⚡️</span> Живые начисления в твоем Telegram
+          </div>
+          <div class="mockup-badge">ONLINE</div>
+        </div>
+
+        <div class="notification-item">
+          <div class="notif-left">
+            <div class="notif-icon">🛵</div>
+            <div class="notif-text">
+              <h4>Аренда байка на 1 месяц</h4>
+              <p>Пользователь @alex_travel · Нячанг</p>
+            </div>
+          </div>
+          <div class="notif-amount">
+            <div class="value">+$2.80</div>
+            <div class="tag">1-й уровень</div>
+          </div>
+        </div>
+
+        <div class="notification-item">
+          <div class="notif-left">
+            <div class="notif-icon">🚗</div>
+            <div class="notif-text">
+              <h4>Аренда автомобиля на месяц</h4>
+              <p>Пользователь @sergey_nomad · Пхукет</p>
+            </div>
+          </div>
+          <div class="notif-amount">
+            <div class="value">+$18.50</div>
+            <div class="tag">1-й уровень</div>
+          </div>
+        </div>
+
+        <div class="notification-item">
+          <div class="notif-left">
+            <div class="notif-icon">🏡</div>
+            <div class="notif-text">
+              <h4>Аренда виллы на 10 дней</h4>
+              <p>Пользователь @elena_life · Бали</p>
+            </div>
+          </div>
+          <div class="notif-amount">
+            <div class="value">+$52.00</div>
+            <div class="tag">1-й уровень</div>
+          </div>
+        </div>
+
+        <div class="notification-item">
+          <div class="notif-left">
+            <div class="notif-icon">💈</div>
+            <div class="notif-text">
+              <h4>Стрижка в барбершопе</h4>
+              <p>Пользователь @dmitry_v · Нячанг</p>
+            </div>
+          </div>
+          <div class="notif-amount">
+            <div class="value">+$1.10</div>
+            <div class="tag">1-й уровень</div>
+          </div>
+        </div>
+
+        <div class="notification-item">
+          <div class="notif-left">
+            <div class="notif-icon">🧹</div>
+            <div class="notif-text">
+              <h4>Генеральный клининг апартаментов</h4>
+              <p>Реферал 2-го уровня (друг подписчика)</p>
+            </div>
+          </div>
+          <div class="notif-amount">
+            <div class="value">+$2.47</div>
+            <div class="tag">2-й уровень</div>
+          </div>
+        </div>
+
+        <div class="notification-item">
+          <div class="notif-left">
+            <div class="notif-icon">💪</div>
+            <div class="notif-text">
+              <h4>Абонемент в фитнес-клуб</h4>
+              <p>Пользователь @max_expat · Дананг</p>
+            </div>
+          </div>
+          <div class="notif-amount">
+            <div class="value">+$3.80</div>
+            <div class="tag">1-й уровень</div>
+          </div>
+        </div>
+
+        <div class="mockup-footer">
+          <div class="mockup-total-label">Доступно к выводу сегодня:</div>
+          <div class="mockup-total-val">$<span>80.67</span> (вывод от $50)</div>
+        </div>
+      </div>
+
+      <div class="cta-group" style="margin-top: 30px; margin-bottom: 0;">
+        <a href="#quick-start-block" onclick="openAndScrollToStart()" class="btn-main">
+          Стать блогером AION ⚡️
+        </a>
+        <a href="#menu-hub" class="btn-secondary">
+          Открыть меню программы ↓
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         INTERACTIVE ACCORDION MENU HUB
+         =================================================== -->
+    <section class="menu-hub-section" id="menu-hub">
+      <div class="menu-hub-hint-centered">
+        Нажимай на интересующий блок, чтобы раскрыть подробности
+      </div>
+
+      <div class="accordion-menu">
+        
+        <!-- BLOCK 1: 4 STEPS -->
+        <div class="menu-item theme-blue" id="block-steps">
+          <div class="menu-header" onclick="toggleMenu('block-steps')">
+            <div class="menu-header-left">
+              <div class="menu-icon-box">⚡️</div>
+              <div class="menu-header-text">
+                <span class="menu-badge">Лёгкий старт</span>
+                <h3>Простота и скорость: 4 простых шага</h3>
+              </div>
+            </div>
+            <div class="menu-arrow">▼</div>
+          </div>
+          <div class="menu-body">
+            <div class="body-inner">
+              <div class="steps-grid">
+                <div class="step-card">
+                  <div class="step-num">01</div>
+                  <h4>Открываешь приложение</h4>
+                  <p>AION работает прямо в Telegram — без скачиваний из AppStore, паролей и регистраций. Запуск в 1 клик.</p>
+                </div>
+                <div class="step-card">
+                  <div class="step-num">02</div>
+                  <h4>Копируешь ссылку</h4>
+                  <p>В личном кабинете реферальной программы забираешь свою персональную ссылку. Каждый переход закрепляет человека навсегда.</p>
+                </div>
+                <div class="step-card">
+                  <div class="step-num">03</div>
+                  <h4>Делишься в блоге</h4>
+                  <p>Stories, Reels, пост, кружочек или ссылка в шапке профиля. Рассказываешь как обычно, без согласований креативов и правок.</p>
+                </div>
+                <div class="step-card">
+                  <div class="step-num">04</div>
+                  <h4>Следишь за ростом сети</h4>
+                  <p>В личном кабинете в режиме онлайн видишь, как растёт твоя база, оформляются заказы и начисляется пассивный доход.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCK 2: PARADIGM SHIFT -->
+        <div class="menu-item theme-slate" id="block-paradigm">
+          <div class="menu-header" onclick="toggleMenu('block-paradigm')">
+            <div class="menu-header-left">
+              <div class="menu-icon-box">🔄</div>
+              <div class="menu-header-text">
+                <span class="menu-badge">Смена парадигмы</span>
+                <h3>Привёл человека 1 раз — доход постоянный</h3>
+              </div>
+            </div>
+            <div class="menu-arrow">▼</div>
+          </div>
+          <div class="menu-body">
+            <div class="body-inner">
+              <div class="compare-container">
+                <div class="compare-box compare-old">
+                  <span class="compare-badge">Обычная разовая реклама</span>
+                  <h4>«Пока крутится — капает»</h4>
+                  <ul class="compare-list">
+                    <li><span class="icon-cross">✕</span> Недели переговоров с рекламодателями и согласований нудных ТЗ</li>
+                    <li><span class="icon-cross">✕</span> Разовая оплата за интеграцию (например, 5 000 – 15 000 ₽)</li>
+                    <li><span class="icon-cross">✕</span> Через 24 часа Stories сгорела — поток дохода мгновенно обнулился</li>
+                    <li><span class="icon-cross">✕</span> Если бренд заработал $10,000 с твоих подписчиков — ты не получишь больше ни цента</li>
+                    <li><span class="icon-cross">✕</span> Приходится искать новых рекламодателей каждый месяц заново</li>
+                  </ul>
+                </div>
+
+                <div class="compare-box compare-new">
+                  <span class="compare-badge">Партнёрство с AION</span>
+                  <h4>«Реферальный пенсионный капитал»</h4>
+                  <ul class="compare-list">
+                    <li><span class="icon-check">✓</span> Человек перешёл по твоей ссылке и навсегда закрепился за тобой</li>
+                    <li><span class="icon-check">✓</span> Он арендует байк, берет авто, заказывает клининг, фитнес, виллы — ты получаешь процент</li>
+                    <li><span class="icon-check">✓</span> Доход идёт завтра, через месяц, через год — в любом городе присутствия AION</li>
+                    <li><span class="icon-check">✓</span> <strong>4 уровня рефералки:</strong> если подписчик позвал друга — ты получаешь % и с заказов друга!</li>
+                    <li><span class="icon-check">✓</span> Снежный ком: база растёт, а пассивный доход начисляется на автопилоте</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCK 3: ECOSYSTEM & SERVICES -->
+        <div class="menu-item theme-cyan" id="block-services">
+          <div class="menu-header" onclick="toggleMenu('block-services')">
+            <div class="menu-header-left">
+              <div class="menu-icon-box">🛵</div>
+              <div class="menu-header-text">
+                <span class="menu-badge">Экосистема</span>
+                <h3>Единая экосистема: один сервис, в котором есть ВСЁ</h3>
+              </div>
+            </div>
+            <div class="menu-arrow">▼</div>
+          </div>
+          <div class="menu-body">
+            <div class="body-inner">
+              <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:8px;">
+                В товарных партнёрках ты рекламируешь одну баночку крема или отдельный товар.
+              </p>
+              <p style="font-size:0.92rem; color:#f1f5f9; margin-bottom:16px; font-weight:500;">
+                В AION твоя ссылка монетизирует востребованные городские услуги первой необходимости:
+              </p>
+              <div class="cat-grid">
+                <div class="cat-item">
+                  <div class="cat-emoji">🛵</div>
+                  <div class="cat-name">Байки и скутеры</div>
+                  <div class="cat-desc">Аренда без залога паспорта</div>
+                </div>
+                <div class="cat-item">
+                  <div class="cat-emoji">🚗</div>
+                  <div class="cat-name">Аренда авто</div>
+                  <div class="cat-desc">Седаны, кроссоверы, минивэны</div>
+                </div>
+                <div class="cat-item">
+                  <div class="cat-emoji">🏡</div>
+                  <div class="cat-name">Виллы и апартаменты</div>
+                  <div class="cat-desc">Долгосрок и отдых</div>
+                </div>
+                <div class="cat-item">
+                  <div class="cat-emoji">💈</div>
+                  <div class="cat-name">Барберы и бьюти</div>
+                  <div class="cat-desc">Стрижки, окрашивание, уход</div>
+                </div>
+                <div class="cat-item">
+                  <div class="cat-emoji">🧹</div>
+                  <div class="cat-name">Клининг и уборка</div>
+                  <div class="cat-desc">Генеральная уборка, химчистка</div>
+                </div>
+                <div class="cat-item">
+                  <div class="cat-emoji">💪</div>
+                  <div class="cat-name">Фитнес и тренеры</div>
+                  <div class="cat-desc">Абонементы, йога, залы</div>
+                </div>
+                <div class="cat-item">
+                  <div class="cat-emoji">🏄‍♂️</div>
+                  <div class="cat-name">Туры и активности</div>
+                  <div class="cat-desc">Серфинг, дайвинг, экскурсии</div>
+                </div>
+                <div class="cat-item">
+                  <div class="cat-emoji">📄</div>
+                  <div class="cat-name">Визы и юристы</div>
+                  <div class="cat-desc">Легализация, продления, ВНЖ</div>
+                </div>
+              </div>
+
+              <div style="margin-top: 18px; padding: 14px 18px; background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 12px; display: flex; align-items: flex-start; gap: 12px;">
+                <span style="font-size: 1.3rem; flex-shrink: 0;">🌍</span>
+                <p style="font-size: 0.88rem; color: #e2e8f0; line-height: 1.55; margin: 0;">
+                  <strong>Это глобальная экосистема, а не локальная привязка к одному городу:</strong> куда бы ни поехал человек — сегодня он во Вьетнаме, через месяц на Бали, зимой в Таиланде или Армении — он продолжает пользоваться AION, а ты пожизненно получаешь свой процент с его заказов в любой точке мира.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCK 4: CALCULATOR -->
+        <div class="menu-item theme-indigo" id="block-calc">
+          <div class="menu-header" onclick="toggleMenu('block-calc')">
+            <div class="menu-header-left">
+              <div class="menu-icon-box">🧮</div>
+              <div class="menu-header-text">
+                <span class="menu-badge">Калькулятор</span>
+                <h3>Математика дохода</h3>
+              </div>
+            </div>
+            <div class="menu-arrow">▼</div>
+          </div>
+          <div class="menu-body">
+            <div class="body-inner">
+              <div class="calc-slider-wrapper">
+                <div class="calc-label-row">
+                  <span class="calc-label-text">Охват твоей публикации (просмотры):</span>
+                  <span class="calc-label-val" id="reachVal">3 000</span>
+                </div>
+                <input type="range" id="reachSlider" min="500" max="30000" step="500" value="3000">
+              </div>
+
+              <div class="calc-results-grid">
+                <div class="calc-res-item">
+                  <div class="calc-res-title">Закрепятся за тобой</div>
+                  <div class="calc-res-num" id="resUsers">120 чел.</div>
+                  <div class="calc-res-sub">Твоя база в AION навсегда</div>
+                </div>
+
+                <div class="calc-res-item">
+                  <div class="calc-res-title">Заказов услуг в месяц</div>
+                  <div class="calc-res-num" id="resOrders">36 заказов</div>
+                  <div class="calc-res-sub">Байки, авто, клининг, бьюти</div>
+                </div>
+
+                <div class="calc-res-item highlight">
+                  <div class="calc-res-title">Ориентировочный доход</div>
+                  <div class="calc-res-num" id="resMoney">~$130 / мес</div>
+                  <div class="calc-res-sub">≈ 12 000 ₽ каждый месяц</div>
+                </div>
+              </div>
+
+              <div class="calc-disclaimer">
+                <strong>* Обратите внимание:</strong> Все расчеты носят сугубо ориентировочный и демонстрационный характер. Фактический доход зависит от активности вашей аудитории, среднего чека и категорий заказанных услуг.
+              </div>
+
+              <!-- WHERE THE MONEY COMES FROM & 4-LEVEL SYSTEM -->
+              <div class="money-source-box">
+                <div class="money-source-header">
+                  <div class="money-source-icon">💡</div>
+                  <div>
+                    <h4>Откуда берутся деньги и как работает 4-уровневая система</h4>
+                    <p>Прозрачная математика: без воздуха, скрытых условий и сложных схем</p>
+                  </div>
+                </div>
+
+                <div class="money-logic-flow">
+                  <div class="logic-step">
+                    <span class="logic-badge">Шаг 1</span>
+                    <p><strong>Партнёры платят сервису AION:</strong> Локальные проверенные бизнесы (аренда байков, авто, клининг, бьюти, виллы) платят сервису комиссию — в среднем составляющую <strong>~10%</strong> от чека клиента.</p>
+                  </div>
+                  <div class="logic-step">
+                    <span class="logic-badge">Шаг 2</span>
+                    <p><strong>AION делится с блогерами и агентами:</strong> Из полученной комиссии сервис отдаёт <strong>30% в реферальную сеть</strong> авторам контента, блогерам и амбассадорам.</p>
+                  </div>
+                </div>
+
+                <div class="levels-vertical-list">
+                  <div class="level-row">
+                    <span class="level-dot dot-1"></span>
+                    <div class="level-info">
+                      <div class="level-header-line">
+                        <strong class="level-name">1-й уровень</strong>
+                        <span class="level-tag-val">20% от комиссии AION</span>
+                      </div>
+                      <p><strong>Твои прямые рефералы:</strong> подписчики, пришедшие по твоей ссылке. Ты получаешь 20% от комиссии сервиса (в среднем ~2% от полной стоимости каждой заказанной услуги).</p>
+                    </div>
+                  </div>
+
+                  <div class="level-row">
+                    <span class="level-dot"></span>
+                    <div class="level-info">
+                      <div class="level-header-line">
+                        <strong class="level-name">2-й уровень</strong>
+                        <span class="level-tag-val">5% от комиссии AION</span>
+                      </div>
+                      <p><strong>Друзья твоих подписчиков:</strong> твоя аудитория делится сервисом со своими знакомыми — ты получаешь процент с их заказов.</p>
+                    </div>
+                  </div>
+
+                  <div class="level-row">
+                    <span class="level-dot"></span>
+                    <div class="level-info">
+                      <div class="level-header-line">
+                        <strong class="level-name">3-й уровень</strong>
+                        <span class="level-tag-val">3% от комиссии AION</span>
+                      </div>
+                      <p><strong>Глубина структуры:</strong> вирусное масштабирование сети, люди рекомендуют приложение дальше, а доход продолжает начисляться тебе.</p>
+                    </div>
+                  </div>
+
+                  <div class="level-row">
+                    <span class="level-dot"></span>
+                    <div class="level-info">
+                      <div class="level-header-line">
+                        <strong class="level-name">4-й уровень</strong>
+                        <span class="level-tag-val">2% от комиссии AION</span>
+                      </div>
+                      <p><strong>Пассивный масштаб:</strong> стабильные начисления со всех покупок на 4 уровня в глубину по всему миру.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCK 5: TOOLS & BONUSES -->
+        <div class="menu-item theme-purple" id="block-tools">
+          <div class="menu-header" onclick="toggleMenu('block-tools')">
+            <div class="menu-header-left">
+              <div class="menu-icon-box">🎁</div>
+              <div class="menu-header-text">
+                <span class="menu-badge">Прокачка блога</span>
+                <h3>Бесплатные инструменты для роста охватов</h3>
+              </div>
+            </div>
+            <div class="menu-arrow">▼</div>
+          </div>
+          <div class="menu-body">
+            <div class="body-inner">
+              <div class="tools-grid">
+                <div class="tool-card">
+                  <div class="tool-icon">🤖</div>
+                  <h4>Собственный AI-продюсер контента</h4>
+                  <p style="margin-bottom: 10px;">
+                    Твой персональный нейро-копирайтер на базе Gemini AI. Он глубоко понимает боли туристов и экспатов и пишет вирусные тексты именно под твой авторский стиль и город.
+                  </p>
+                  <p style="font-size: 0.8rem; color: #38bdf8; font-weight: 500;">
+                    ⚡️ Генерирует готовые сценарии для Reels, сторителлинги для Stories и посты за 30 секунд — просто задай тему.
+                  </p>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-icon">🎬</div>
+                  <h4>Банк из 50+ готовых сценариев и хуков</h4>
+                  <p style="margin-bottom: 10px;">
+                    Проверенные форматы с максимальным удержанием: цепляющие хуки для первых 3 секунд, сценарии «Ошибки новичка за границей», «Как перестать переплачивать» и вирусные интерактивы.
+                  </p>
+                  <p style="font-size: 0.8rem; color: #c084fc; font-weight: 500;">
+                    🔥 Бери готовый шаблон, адаптируй под свой блог и снимай без долгих мучительных раздумий над контентом.
+                  </p>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-icon">🚀</div>
+                  <h4>Инструменты и связки для больших охватов</h4>
+                  <p style="margin-bottom: 10px;">
+                    Готовые механики вовлечения: шаблоны полезных гайдов-лидмагнитов для шапки профиля, интерактивные Бинго для Stories и связки, которые помогают стабильно растить охваты.
+                  </p>
+                  <p style="font-size: 0.8rem; color: #4ade80; font-weight: 500;">
+                    📈 Помогают привлекать новую аудиторию, повышать лояльность и превращать просмотры в реальный пассивный доход.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCK 6: FAQ -->
+        <div class="menu-item theme-emerald" id="block-faq">
+          <div class="menu-header" onclick="toggleMenu('block-faq')">
+            <div class="menu-header-left">
+              <div class="menu-icon-box">❓</div>
+              <div class="menu-header-text">
+                <span class="menu-badge">Вопросы</span>
+                <h3>Частые вопросы и ответы (FAQ)</h3>
+              </div>
+            </div>
+            <div class="menu-arrow">▼</div>
+          </div>
+          <div class="menu-body">
+            <div class="body-inner">
+              <div class="faq-list">
+                <!-- 1. Who pays -->
+                <div class="faq-sub-item active">
+                  <div class="faq-sub-q" onclick="toggleSubFaq(this)">
+                    <span>Кто мне платит?</span>
+                    <span class="faq-sub-icon">+</span>
+                  </div>
+                  <div class="faq-sub-a">
+                    Платят проверенные сервисы и партнеры AION с каждого выполненного заказа. Приложение автоматически начисляет твою партнерскую долю в личный кабинет.
+                  </div>
+                </div>
+
+                <!-- 2. Where money goes & withdrawal -->
+                <div class="faq-sub-item">
+                  <div class="faq-sub-q" onclick="toggleSubFaq(this)">
+                    <span>Куда приходят деньги и когда возможен вывод?</span>
+                    <span class="faq-sub-icon">+</span>
+                  </div>
+                  <div class="faq-sub-a">
+                    Все начисления поступают на твой баланс прямо в личном кабинете Telegram Mini App в режиме онлайн. Вывод средств доступен от $50.
+                  </div>
+                </div>
+
+                <!-- 3. How long income lasts -->
+                <div class="faq-sub-item">
+                  <div class="faq-sub-q" onclick="toggleSubFaq(this)">
+                    <span>Как долго я буду получать доход?</span>
+                    <span class="faq-sub-icon">+</span>
+                  </div>
+                  <div class="faq-sub-a">
+                    Пожизненно. Каждый подписчик, однажды запустивший приложение по твоей ссылке, навсегда закрепляется в твоей реферальной сети. Пока он заказывает услуги AION — тебе начисляется процент.
+                  </div>
+                </div>
+
+                <!-- 4. How to track referrals -->
+                <div class="faq-sub-item">
+                  <div class="faq-sub-q" onclick="toggleSubFaq(this)">
+                    <span>Как отслеживать, кто присоединился по моей реферальной ссылке?</span>
+                    <span class="faq-sub-icon">+</span>
+                  </div>
+                  <div class="faq-sub-a">
+                    Отслеживать можно в личном кабинете реферальной программы прямо внутри Telegram Mini App. Там в режиме реального времени отображается прозрачная статистика: сколько человек присоединились, сколько они сделали заказов и какую точную сумму дохода принёс каждый пользователь.
+                  </div>
+                </div>
+
+                <!-- 5. Content format -->
+                <div class="faq-sub-item">
+                  <div class="faq-sub-q" onclick="toggleSubFaq(this)">
+                    <span>Обязательно снимать какой-то определенный вид контента?</span>
+                    <span class="faq-sub-icon">+</span>
+                  </div>
+                  <div class="faq-sub-a">
+                    Нет, никаких строгих ограничений. Ты делаешь контент так, как тебе комфортно: Stories, Reels, кружочки в Telegram, посты-гайды или просто закрепляешь ссылку в шапке профиля с пользой для аудитории.
+                  </div>
+                </div>
+
+                <!-- 6. Follower count -->
+                <div class="faq-sub-item">
+                  <div class="faq-sub-q" onclick="toggleSubFaq(this)">
+                    <span>Нужно ли иметь много подписчиков?</span>
+                    <span class="faq-sub-icon">+</span>
+                  </div>
+                  <div class="faq-sub-a">
+                    Количество подписчиков может быть абсолютно любым! Мы рады как начинающим авторам от 100–300 подписчиков, так и крупным блогерам. Более того, с помощью нашего AI-продюсера, готовых сценариев и инструментов мы как раз помогаем авторам прокачать блог и вырастить охваты.
+                  </div>
+                </div>
+
+                <!-- 7. Cost of participation (closing point before becoming a partner) -->
+                <div class="faq-sub-item">
+                  <div class="faq-sub-q" onclick="toggleSubFaq(this)">
+                    <span>Сколько стоит участие в программе?</span>
+                    <span class="faq-sub-icon">+</span>
+                  </div>
+                  <div class="faq-sub-a">
+                    Абсолютно бесплатно. 0 рублей, 0 долларов. Единственное условие — быть нашим партнёром и делиться полезным сервисом со своей аудиторией.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCK 7: QUICK START (INSTRUCTION) -->
+        <div class="menu-item theme-glow" id="quick-start-block">
+          <div class="menu-header" onclick="toggleMenu('quick-start-block')">
+            <div class="menu-header-left">
+              <div class="menu-icon-box">🚀</div>
+              <div class="menu-header-text">
+                <span class="menu-badge" style="color:#22c55e;">Лёгкий старт</span>
+                <h3>Как стать партнёром?</h3>
+              </div>
+            </div>
+            <div class="menu-arrow">▼</div>
+          </div>
+          <div class="menu-body">
+            <div class="body-inner">
+              <div class="inst-steps">
+                <div class="inst-step-item">
+                  <div class="inst-badge">1</div>
+                  <div class="inst-info">
+                    <h4>Зайди в приложение AION в Telegram</h4>
+                    <p>Нажми кнопку ниже и открой Telegram Mini App в один клик:</p>
+                    <div>
+                      <a href="https://t.me/AIONTravelBot/app?startapp=ref_AIONSTAR" target="_blank" class="btn-app-launch">
+                        📲 Запустить приложение AION
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="inst-step-item">
+                  <div class="inst-badge">2</div>
+                  <div class="inst-info">
+                    <h4>Скопируй свою реферальную ссылку</h4>
+                    <p>Внутри приложения перейди в раздел <strong>«Профиль» → «Реферальная программа»</strong> и нажми кнопку «Скопировать ссылку».</p>
+                  </div>
+                </div>
+
+                <div class="inst-step-item">
+                  <div class="inst-badge">3</div>
+                  <div class="inst-info">
+                    <h4>Отправь свою ссылку куратору проекта</h4>
+                    <p>Напиши куратору в Telegram <a href="https://t.me/litt1e_roo" target="_blank" style="color:var(--primary); font-weight:700;">@litt1e_roo</a>: <em>«Привет! Я блогер, вот моя ссылка: [твоя ссылка]»</em>.</p>
+                    <p style="margin-top:6px; font-size:0.85rem; color:#38bdf8;">
+                      🎁 Куратор активирует статус партнёра, выдаст доступ к AI-продюсеру контента, закрытой базе из 50+ сценариев и инструментам для охватов.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FINAL PUNCHLINE CTA -->
+    <section class="final-cta">
+      <h2>Твоя аудитория уже заказывает услуги за рубежом.</h2>
+      <p>
+        Вопрос только в том, идёт ли с этого постоянный пассивный доход тебе. Забирай готовые инструменты и начни монетизировать доверие блога прямо сейчас.
+      </p>
+      <div class="cta-group">
+        <a href="https://t.me/AIONTravelBot/app?startapp=ref_AIONSTAR" target="_blank" class="btn-main">
+          Подключить блог к AION ⚡️
+        </a>
+        <a href="https://t.me/litt1e_roo" target="_blank" class="btn-secondary">
+          Написать куратору (@litt1e_roo)
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 AION Ecosystem. All rights reserved. Экосистема жизни за рубежом.</p>
+      <p style="margin-top: 8px;">
+        Куратор программы: <a href="https://t.me/litt1e_roo" target="_blank" style="color: var(--primary);">@litt1e_roo</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- STICKY MOBILE ACTION BAR -->
+  <div class="mobile-sticky-bar">
+    <div class="sticky-info">
+      <div class="sticky-title">AION для блогеров</div>
+      <div class="sticky-sub">Пожизненный пассивный доход</div>
+    </div>
+    <a href="https://t.me/AIONTravelBot/app?startapp=ref_AIONSTAR" target="_blank" class="sticky-btn">
+      Подключиться ⚡️
+    </a>
+  </div>
+
+  <!-- SCRIPTS: ACCORDION MENU & CALCULATOR -->
+  <script>
+    // Accordion Menu Toggle
+    function toggleMenu(blockId) {
+      const item = document.getElementById(blockId);
+      if (item) {
+        item.classList.toggle('open');
+      }
+    }
+
+    // Toggle All Sections
+    let allExpanded = false;
+    function toggleAllSections() {
+      const items = document.querySelectorAll('.menu-item');
+      const btn = document.getElementById('btnToggleAll');
+      allExpanded = !allExpanded;
+      items.forEach(item => {
+        if (allExpanded) {
+          item.classList.add('open');
+        } else {
+          item.classList.remove('open');
+        }
+      });
+      if (btn) {
+        btn.textContent = allExpanded ? 'Свернуть всё' : 'Развернуть всё';
+      }
+    }
+
+    // Open & scroll to Quick Start block
+    function openAndScrollToStart() {
+      const block = document.getElementById('quick-start-block');
+      if (block) {
+        block.classList.add('open');
+        block.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // FAQ sub-item toggle
+    function toggleSubFaq(element) {
+      const parent = element.closest('.faq-sub-item');
+      const isActive = parent.classList.contains('active');
+      document.querySelectorAll('.faq-sub-item').forEach(i => i.classList.remove('active'));
+      if (!isActive) {
+        parent.classList.add('active');
+      }
+    }
+
+    // Calculator Logic (~2% commission on services)
+    const slider = document.getElementById('reachSlider');
+    const reachVal = document.getElementById('reachVal');
+    const resUsers = document.getElementById('resUsers');
+    const resOrders = document.getElementById('resOrders');
+    const resMoney = document.getElementById('resMoney');
+
+    function updateCalc() {
+      const reach = parseInt(slider.value, 10);
+      reachVal.textContent = reach.toLocaleString('ru-RU');
+
+      const users = Math.round(reach * 0.04);
+      const orders = Math.round(users * 0.30);
+      const incomeUSD = Math.round(orders * 3.6);
+      const incomeRUB = Math.round(incomeUSD * 94);
+
+      resUsers.textContent = users + ' чел.';
+      resOrders.textContent = orders + ' заказов';
+      resMoney.innerHTML = `~$${incomeUSD} / мес<br><span style="font-size:0.75rem; font-weight:500; color:#94a3b8;">≈ ${incomeRUB.toLocaleString('ru-RU')} ₽</span>`;
+    }
+
+    slider.addEventListener('input', updateCalc);
+    updateCalc();
+  </script>
+</body>
+</html>
