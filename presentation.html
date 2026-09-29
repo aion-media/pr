@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AION OS | Официальная презентация платформы</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #040711;
+            --bg-card: rgba(13, 19, 33, 0.75);
+            --bg-card-hover: rgba(20, 28, 48, 0.9);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(6, 182, 212, 0.35);
+            
+            --accent-cyan: #06b6d4;
+            --accent-blue: #3b82f6;
+            --accent-emerald: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-gold: #f59e0b;
+            --accent-rose: #f43f5e;
+            
+            --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+            --gradient-emerald: linear-gradient(135deg, #34d399 0%, #059669 100%);
+            --gradient-gold: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.65;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 60%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4, h5, .brand-font {
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.025em;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Ambient Glow */
+        .ambient-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(circle at 50% -20%, rgba(6, 182, 212, 0.15) 0%, transparent 60%);
+        }
+
+        /* Header / Nav */
+        header.top-nav {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-glass);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(4, 7, 17, 0.85);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo-symbol {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #000;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+        }
+
+        .logo span.badge-tag {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-glass);
+            border-radius: 6px;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-cyan);
+        }
+
+        .btn-tg {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: var(--gradient-accent);
+            border: none;
+            border-radius: 100px;
+            color: #000;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 4px 18px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-tg:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 70px 0 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 18px;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 100px;
+            color: var(--accent-cyan);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.18);
+        }
+
+        .hero-tag span.dot {
+            width: 7px; height: 7px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            animation: pulse-dot 1.8s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        .hero h1 {
+            font-size: 3.1rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            max-width: 950px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 span.gradient {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p.lead {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 720px;
+            margin: 0 auto 32px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Metrics Bar */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 45px;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 18px;
+            padding: 22px 16px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-highlight);
+        }
+
+        .metric-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 6px;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .metric-label {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Sections General */
+        section.section-wrap {
+            padding: 65px 0;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-cyan);
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 900;
+            margin-bottom: 14px;
+            color: #fff;
+        }
+
+        .section-title span.grad {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-desc {
+            font-size: 0.98rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Bento Grid Style */
+        .bento-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .bento-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .bento-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 28px 24px;
+            backdrop-filter: blur(14px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-card:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .bento-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            color: var(--accent-cyan);
+        }
+
+        .bento-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .bento-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        /* Category Tags */
+        .category-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 25px 0;
+        }
+
+        .pill {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #cbd5e1;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Deep Dive: Value for User & Business */
+        .value-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .value-column {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 22px;
+            padding: 30px;
+            backdrop-filter: blur(16px);
+        }
+
+        .value-column.user { border-top: 3px solid var(--accent-cyan); }
+        .value-column.biz { border-top: 3px solid var(--accent-gold); }
+
+        .value-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .value-column.user .value-badge { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); }
+        .value-column.biz .value-badge { background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); }
+
+        .feature-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .feature-item:last-child { margin-bottom: 0; }
+
+        .feature-icon-bullet {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .user .feature-icon-bullet { background: rgba(6, 182, 212, 0.1); color: var(--accent-cyan); }
+        .biz .feature-icon-bullet { background: rgba(245, 158, 11, 0.1); color: var(--accent-gold); }
+
+        .feature-item h4 {
+            font-size: 1.02rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+            color: #fff;
+        }
+
+        .feature-item p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* AI Vision Block */
+        .vision-banner {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(139, 92, 246, 0.08));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 24px;
+            padding: 42px 30px;
+            margin: 45px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: var(--gradient-accent);
+        }
+
+        .vision-banner h3 {
+            font-size: 1.95rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .vision-banner p.desc {
+            font-size: 1.02rem;
+            color: #cbd5e1;
+            max-width: 720px;
+            margin: 0 auto 28px;
+            line-height: 1.6;
+        }
+
+        /* A2A Scheme */
+        .a2a-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .a2a-node {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 18px 24px;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .a2a-node h5 {
+            font-size: 1.05rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .a2a-node p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .a2a-arrow {
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            font-weight: 900;
+            animation: bounce-x 2s infinite;
+        }
+
+        @keyframes bounce-x {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+
+        /* Battle: AION vs Tech Giants */
+        .battle-card {
+            background: rgba(10, 14, 25, 0.85);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 35px 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .battle-side {
+            padding: 10px;
+        }
+
+        .battle-side.giant {
+            border-right: 1px solid var(--border-glass);
+        }
+
+        .side-tag {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .giant .side-tag { color: var(--accent-rose); }
+        .aion .side-tag { color: var(--accent-emerald); }
+
+        .battle-side h4 {
+            font-size: 1.35rem;
+            margin-bottom: 14px;
+            color: #fff;
+        }
+
+        .bullet-point {
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .giant .bullet-point::before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: var(--accent-rose);
+            font-weight: 800;
+        }
+
+        .aion .bullet-point::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-emerald);
+            font-weight: 800;
+        }
+
+        .punchline-quote {
+            grid-column: span 2;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(16, 185, 129, 0.1));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 16px;
+            padding: 20px 24px;
+            text-align: center;
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        /* Referral System Table */
+        .ref-table-wrap {
+            overflow-x: auto;
+            border-radius: 18px;
+            border: 1px solid var(--border-glass);
+            margin: 30px 0;
+        }
+
+        table.ref-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        table.ref-table th, table.ref-table td {
+            padding: 15px 18px;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        table.ref-table th {
+            background: rgba(0, 0, 0, 0.5);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        table.ref-table td {
+            font-size: 0.88rem;
+        }
+
+        table.ref-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Standards of Quality (Tiers) */
+        .tier-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .tier-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 30px 25px;
+            position: relative;
+        }
+
+        .tier-card.approved {
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.1);
+        }
+
+        .tier-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .tier-badge.partner { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); }
+        .tier-badge.approved { background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); }
+
+        .tier-card h4 {
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .tier-list {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .tier-list li {
+            padding-left: 22px;
+            position: relative;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .tier-list li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            font-size: 0.7rem;
+        }
+
+        .partner .tier-list li::before { color: var(--accent-cyan); }
+        .approved .tier-list li::before { color: var(--accent-gold); }
+
+        /* CTA Footer */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(59, 130, 246, 0.12));
+            border: 1px solid rgba(6, 182, 212, 0.35);
+            border-radius: 32px;
+            padding: 70px 40px;
+            text-align: center;
+            margin: 80px 0;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-box h2 {
+            font-size: 3.4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .cta-box p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            padding: 16px 36px;
+            border-radius: 100px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-large.primary {
+            background: var(--gradient-accent);
+            color: #000;
+            box-shadow: 0 4px 25px rgba(6, 182, 212, 0.4);
+        }
+
+        .btn-large.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(6, 182, 212, 0.6);
+        }
+
+        .btn-large.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            color: #fff;
+        }
+
+        /* Onboarding & Instructions Section */
+        .instructions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .onboard-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 28px;
+            padding: 35px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            backdrop-filter: blur(14px);
+            transition: all 0.3s ease;
+        }
+
+        .onboard-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .onboard-card.user { border-top: 4px solid var(--accent-cyan); }
+        .onboard-card.biz { border-top: 4px solid var(--accent-gold); }
+        .onboard-card.creator { border-top: 4px solid var(--accent-purple); }
+
+        .onboard-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        .user .onboard-badge { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); }
+        .biz .onboard-badge { background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); }
+        .creator .onboard-badge { background: rgba(139, 92, 246, 0.15); color: #c084fc; }
+
+        .onboard-card h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .onboard-card p.intro-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.55;
+        }
+
+        .steps-mini {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .steps-mini li {
+            position: relative;
+            padding-left: 36px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        .steps-mini li:last-child { margin-bottom: 0; }
+
+        .steps-mini li span.step-circle {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .user .steps-mini li span.step-circle { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+        .biz .steps-mini li span.step-circle { border-color: var(--accent-gold); color: var(--accent-gold); }
+        .creator .steps-mini li span.step-circle { border-color: #c084fc; color: #c084fc; }
+
+        .btn-action-full {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .btn-action-full.cyan {
+            background: var(--gradient-accent);
+            color: #000;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+        }
+        .btn-action-full.cyan:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.5);
+        }
+
+        .btn-action-full.gold {
+            background: var(--gradient-gold);
+            color: #000;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+        }
+        .btn-action-full.gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.5);
+        }
+
+        .btn-action-full.purple {
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
+        }
+        .btn-action-full.purple:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(168, 85, 247, 0.5);
+        }
+
+        .btn-outline-sub {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 11px 18px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--border-glass);
+            background: rgba(255, 255, 255, 0.03);
+            color: #cbd5e1;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+        .btn-outline-sub:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 3rem; }
+            .metrics-grid, .bento-grid-2, .bento-grid-3, .value-split, .battle-card, .tier-comparison { grid-template-columns: 1fr; }
+            .battle-side.giant { border-right: none; border-bottom: 1px solid var(--border-glass); padding-bottom: 30px; }
+            .punchline-quote { grid-column: span 1; font-size: 1.15rem; }
+            .a2a-flow { flex-direction: column; }
+            .a2a-arrow { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="ambient-glow"></div>
+
+<!-- TOP NAV -->
+<header class="top-nav">
+    <div class="container nav-inner">
+        <a href="#" class="logo">
+            <div class="logo-symbol">A</div>
+            <span>AION OS</span>
+            <span class="badge-tag">Global</span>
+        </a>
+        
+        <nav class="nav-links">
+            <a href="#about" class="nav-link">О платформе</a>
+            <a href="#value" class="nav-link">Польза & Бизнес</a>
+            <a href="#ai-vision" class="nav-link">AI-Агент будущего</a>
+            <a href="#versus" class="nav-link">AION vs Гиганты</a>
+            <a href="#partnership" class="nav-link">Партнерство</a>
+            <a href="https://t.me/AIONTravelBot/app?startapp=ref_COX2XQLL" target="_blank" class="btn-tg">
+                <span>🚀 Открыть в Telegram</span>
+            </a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-tag">
+            <span class="dot"></span>
+            Life Operating System & Autonomous AI Copilot
+        </div>
+        
+        <h1>
+            Весь мир — твой район.<br>
+            <span class="gradient">Единая экосистема и AI-Агент</span><br>
+            для реальной жизни за рубежом
+        </h1>
+        
+        <p class="lead">
+            AION заменяет десятки хаотичных Telegram-чатов и разрозненных сервисов. Мы объединяем проверенные услуги, локации и бизнес в 24 сферах в одном окне — и строим первую в мире межагентскую экономику (A2A).
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: 18px;">
+            <a href="https://t.me/AIONTravelBot/app?startapp=ref_COX2XQLL" target="_blank" class="btn-large primary">
+                Запустить AION в Telegram
+            </a>
+            <a href="#value" class="btn-large secondary">
+                Как это работает ↓
+            </a>
+        </div>
+
+        <!-- METRICS -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-number">30+</div>
+                <div class="metric-label">Стран глобального присутствия</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">100+</div>
+                <div class="metric-label">Городов и туристических хабов</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">24</div>
+                <div class="metric-label">Сферы жизни экспата и туриста</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">30%</div>
+                <div class="metric-label">Комиссии в 4-уровневую сеть</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. ЧТО ТАКОЕ AION СЕЙЧАС -->
+    <section id="about" class="section-wrap">
+        <div class="section-header">
+            <span class="section-badge">Твердый продукт сегодня</span>
+            <h2 class="section-title">Единая <span class="grad">Операционная Система</span> Жизни</h2>
+            <p class="section-desc">
+                Формат Telegram Mini App: мгновенный доступ без необходимости скачивать сторонние приложения или регистрироваться на десятках сомнительных сайтов.
+            </p>
+        </div>
+
+        <div class="bento-grid-3">
+            <div class="bento-card">
+                <div class="bento-icon">🛵</div>
+                <h3>Транспорт и Мобильность</h3>
+                <p>Аренда проверенных байков и авто без залога оригиналов паспортов, трансферы в аэропорт и междугородние поездки по фиксированным ценам.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">🏡</div>
+                <h3>Жилье, Быт и Уют</h3>
+                <p>Проверенные апартаменты и виллы от собственников, клининг, доставка питьевой воды, экспресс-ремонт и проверенные мастера на дом.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">☕</div>
+                <h3>«Места рядом»</h3>
+                <p>Умный геолокационный гид по лучшим кофейням, ресторанам, коворкингам, спортзалам и серф-спотам с бонусами для пользователей AION.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">🩺</div>
+                <h3>Медицина и Здоровье</h3>
+                <p>Русскоязычные врачи, проверенные стоматологии, проверенные аптеки и экстренная помощь без языкового барьера.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">💅</div>
+                <h3>Красота и Релакс</h3>
+                <p>Топовые салоны красоты, массажные центры, SPA и барбершопы с подтвержденными стандартами чистоты и честными прайсами.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">⚖️</div>
+                <h3>Легализация и Финансы</h3>
+                <p>Визовое сопровождение, открытие банковских карт, помощь юристов и безопасный проверенный обмен валют без риска мошенничества.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ПОЛЬЗА ДЛЯ ПОЛЬЗОВАТЕЛЕЙ И БИЗНЕСА -->
+    <section id="value" class="section-wrap">
+        <div class="section-header">
+            <span class="section-badge">Двусторонний Win-Win</span>
+            <h2 class="section-title">Ценность для <span class="grad">Людей и Бизнеса</span></h2>
+            <p class="section-desc">
+                Почему AION выбирают тысячи путешественников и сотни заведений в каждом городе присутствия.
+            </p>
+        </div>
+
+        <div class="value-split">
+            <!-- ДЛЯ ПОЛЬЗОВАТЕЛЕЙ -->
+            <div class="value-column user">
+                <span class="value-badge">Для Пользователей и Экспатов</span>
+                <h3 style="font-size: 1.35rem; margin-bottom: 20px; color: #fff;">Комфорт и безопасность родного дома</h3>
+                
+                <div class="feature-item">
+                    <div class="feature-icon-bullet">🚫</div>
+                    <div>
+                        <h4>Конец спам-чатам</h4>
+                        <p>Вместо 20 хаотичных Telegram-групп с ботами и рекламой — аккуратное меню в 1 клик прямо в мессенджере.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon-bullet">⭐</div>
+                    <div>
+                        <h4>Рейтинг и проверенные отзывы</h4>
+                        <p>Система прозрачной репутации, оценок и реальных отзывов пользователей помогает легко выбирать проверенные и безопасные услуги.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon-bullet">🏷️</div>
+                    <div>
+                        <h4>Фиксированные открытые цены</h4>
+                        <p>Честный прозрачный прайс без наценки «для богатых иностранцев» и скрытых доплат по факту.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon-bullet">📍</div>
+                    <div>
+                        <h4>Умный радар локаций</h4>
+                        <p>Приложение видит вашу геолокацию и мгновенно подсказывает проверенные места в радиусе 300–500 метров.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ДЛЯ БИЗНЕСА -->
+            <div class="value-column biz">
+                <span class="value-badge">Для Локального Бизнеса</span>
+                <h3 style="font-size: 1.35rem; margin-bottom: 20px; color: #fff;">Бесплатные клиенты и монетизация зала</h3>
+                
+                <div class="feature-item">
+                    <div class="feature-icon-bullet">🎁</div>
+                    <div>
+                        <h4>$0 за вход и размещение</h4>
+                        <p>Никаких абонентских плат, скрытых тарифов или обязательных депозитов. Подключение и создание карточки полностью бесплатны.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon-bullet">💳</div>
+                    <div>
+                        <h4>Платежеспособный трафик</h4>
+                        <p>Прямой доступ к экспатам, зимовщикам и туристам — активной аудитории, готовой регулярно платить за качественный сервис.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon-bullet">🎯</div>
+                    <div>
+                        <h4>Оплата только за результат</h4>
+                        <p>Сервисная комиссия AION взимается исключительно за реально состоявшегося и оплатившего услугу клиента. Нет заказов — нет расходов.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon-bullet">👑</div>
+                    <div>
+                        <h4>Бонусы для Офлайн-Партнёров</h4>
+                        <p style="margin-bottom: 6px;">
+                            Заведения, которые размещают фирменные промо-материалы AION (тейблтенты, стойки с QR) у себя в зале, получают статус <strong>Офлайн-Партнёра</strong> и ключевые привилегии:
+                        </p>
+                        <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.5;">
+                            • <strong>Пассивный доход:</strong> пожизненно <strong>20% от комиссии AION</strong> со всех будущих трат ваших гостей по всему миру навсегда!<br>
+                            • <strong>Приоритет в каталоге «Места рядом»</strong> и статусная плашка доверия «Партнёр AION».<br>
+                            • <strong>Возможность пройти независимый аудит</strong> и получить престижный физический знак качества «AION Approved».
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. СТРАТЕГИЧЕСКИЙ ВЕКТОР: AI-АГЕНТ И A2A -->
+    <section id="ai-vision" class="section-wrap">
+        <div class="section-header">
+            <span class="section-badge">Куда мы идём в ближайших планах</span>
+            <h2 class="section-title">От Каталога к <span class="grad">Персональному AI-Агенту</span></h2>
+            <p class="section-desc">
+                AION не останавливается на формате супер-аппа. Мы строим первую в мире двустороннюю межагентскую экономику (Agent-to-Agent / A2A).
+            </p>
+        </div>
+
+        <div class="vision-banner">
+            <h3>Autonomous Life Copilot</h3>
+            <p class="desc">
+                Вам больше не нужно листать сотни карточек вручную. Вы просто говорите своему ассистенту голосом или текстом: <i>«Закажи хороший байк к отелю на неделю и забронируй видовой столик на двоих»</i>. Ваш Copilot сам решает задачу за секунды.
+            </p>
+
+            <div class="a2a-flow">
+                <div class="a2a-node">
+                    <div style="font-size: 2.2rem; margin-bottom: 8px;">🧑‍🚀</div>
+                    <h5>User Copilot</h5>
+                    <p>Агент Пользователя (Голос / Текст, знает вкусы и бюджет)</p>
+                </div>
+
+                <div class="a2a-arrow">⇄</div>
+
+                <div style="background: rgba(6, 182, 212, 0.15); border: 1px dashed var(--accent-cyan); border-radius: 14px; padding: 12px 20px; font-weight: 700; font-size: 0.85rem; color: var(--accent-cyan); letter-spacing: 1px;">
+                    A2A API SYNC<br>
+                    <span style="font-size: 0.75rem; color: #fff; font-weight: 400;">(Миллисекунды)</span>
+                </div>
+
+                <div class="a2a-arrow">⇄</div>
+
+                <div class="a2a-node">
+                    <div style="font-size: 2.2rem; margin-bottom: 8px;">🏢</div>
+                    <h5>B2B Agent SaaS</h5>
+                    <p>ИИ-Администратор Заведения (Календарь, CRM, бронь, оплата)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-grid-3">
+            <div class="bento-card">
+                <div class="bento-icon">🎙️</div>
+                <h3>Voice-to-Action</h3>
+                <p>Агент понимает живую речь, помнит размер шлема, предпочтения в еде и способ оплаты (USDT, криптовалюта или местный фиат).</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">🤖</div>
+                <h3>B2B ИИ-Сотрудник</h3>
+                <p>Персональный ИИ-диспетчер для заведений: поднимает трубки, отвечает в мессенджерах 24/7 и заносит брони в расписание без усталости.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">🐎</div>
+                <h3>Стратегия «Троянский Конь»</h3>
+                <p>Бизнесы экономят на персонале благодаря нашему SaaS и сами направляют клиентов в AION, создавая мощный сетевой эффект.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. AION ПРОТИВ ТЕХНО-ГИГАНТОВ -->
+    <section id="versus" class="section-wrap">
+        <div class="section-header">
+            <span class="section-badge">Архитектурное превосходство</span>
+            <h2 class="section-title">AION против <span class="grad">«Слепых Гигантов»</span></h2>
+            <p class="section-desc">
+                Почему горизонтальный веб-парсинг корпораций (Meta Muse, Google) проигрывает верифицированной вертикальной экосистеме реального мира.
+            </p>
+        </div>
+
+        <div class="battle-card">
+            <div class="battle-side giant">
+                <span class="side-tag">Агенты Корпораций (Meta Muse / Google)</span>
+                <h4>Открытый Веб-Парсинг</h4>
+                <div class="bullet-point"><strong>Бессильны перед локальным бизнесом:</strong> попытайтесь забронировать байк на Бали или в Нячанге через веб-бота — у локального проката либо вообще нет сайта, либо на нем нет функций бронирования и оплаты.</div>
+                <div class="bullet-point"><strong>Зависают в открытом вебе:</strong> боты ломаются о капчи, устаревшие сайты, неработающие формы и заперты в фиатных регуляциях США (Stripe/Apple Pay).</div>
+                <div class="bullet-point"><strong>Иллюзия контроля:</strong> веб-агент не несет ответственности за качество услуги и может забронировать несуществующий сервис по накрученным отзывам.</div>
+            </div>
+
+            <div class="battle-side aion">
+                <span class="side-tag">AION OS (Real World Protocol)</span>
+                <h4>Прямая Экосистема Реального Мира</h4>
+                <div class="bullet-point"><strong>Прямая связь с бизнесом:</strong> внутри AION встроена прямая коммуникация и API-связка с реальными заведениями и мастерами в 30+ странах мира.</div>
+                <div class="bullet-point"><strong>Подтвержденное бронирование за секунды:</strong> запрос летит напрямую проверенному партнеру в верифицированный Master B2B Hub без лишних звеньев.</div>
+                <div class="bullet-point"><strong>Безопасная сделка (Escrow):</strong> мгновенные расчеты в USDT, криптовалюте или местном фиате с гарантией выполнения услуги.</div>
+            </div>
+
+            <div class="punchline-quote">
+                «Meta найдет для вас красивый сайт в интернете, но не сможет забронировать байк в Азии. AION связывается с локальным бизнесом напрямую и гарантирует подтвержденную бронь и безопасное выполнение услуги в реальной жизни».
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 4-УРОВНЕВАЯ РЕФЕРАЛЬНАЯ СИСТЕМА -->
+    <section id="partnership" class="section-wrap">
+        <div class="section-header">
+            <span class="section-badge">Финансовый двигатель</span>
+            <h2 class="section-title">4-Уровневый <span class="grad">Реферальный Капитал</span></h2>
+            <p class="section-desc">
+                AION отдает 30% от всей сервисной комиссии в партнерскую сеть. Вы получаете пожизненный доход с трат пользователей по всему миру.
+            </p>
+        </div>
+
+        <div class="ref-table-wrap">
+            <table class="ref-table">
+                <thead>
+                    <tr>
+                        <th>Уровень сети</th>
+                        <th>Доля от комиссии AION</th>
+                        <th>Кто этот участник</th>
+                        <th>Пример работы</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong style="color: var(--accent-cyan); font-size: 1.1rem;">1-й Уровень</strong></td>
+                        <td><strong style="font-size: 1.2rem; color: #fff;">20%</strong></td>
+                        <td>Прямой партнер, заведение услуг или офлайн-точка</td>
+                        <td>Подключенный сервис (прокат байков, стоматология, салон красоты, клининг) или заведение с QR-стойкой.</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--accent-emerald); font-size: 1.1rem;">2-й Уровень</strong></td>
+                        <td><strong style="font-size: 1.2rem; color: #fff;">5%</strong></td>
+                        <td>Клиенты и гости подключенного заведения / аудитория блогера</td>
+                        <td>Туристы, отсканировавшие QR за столиком кафе, или подписчики канала.</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--accent-gold); font-size: 1.1rem;">3-й Уровень</strong></td>
+                        <td><strong style="font-size: 1.2rem; color: #fff;">3%</strong></td>
+                        <td>Вирусное масштабирование от пользователей 2-го уровня</td>
+                        <td>Друзья и знакомые туристов, которым они порекомендовали AION.</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--accent-purple); font-size: 1.1rem;">4-й Уровень</strong></td>
+                        <td><strong style="font-size: 1.2rem; color: #fff;">2%</strong></td>
+                        <td>Глубина сети от пользователей 3-го уровня</td>
+                        <td>Органический рост в других городах и странах по сарафанному радио.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="bento-grid-3" style="margin-top: 30px;">
+            <div class="bento-card">
+                <div class="bento-icon">🔒</div>
+                <h3>Пожизненный LTV</h3>
+                <p>Единожды отсканировав QR-код или сделав заказ, клиент навсегда закрепляется за вами. Даже если он воспользуется сервисом через год в другой стране — вы получаете комиссию.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">🛵</div>
+                <h3>Бизнесы Услуг и Сервисы</h3>
+                <p>Подключайте прокаты авто и байков, стоматологии, клиники, салоны красоты, частных мастеров, нянь, клининг, ремонт и экскурсии — получайте пожизненный процент с каждого заказа и всего оборота услуги.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">🌐</div>
+                <h3>Глобальный масштаб</h3>
+                <p>Выплаты в реальном времени в <strong>USDT</strong> или фиате. Подключив кафе или прокат в Нячанге, вы зарабатываете, когда ваши клиенты бронируют виллы на Бали или заказывают яхты в Дубае.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. СТАТУС ПАРТНЕР И AION APPROVED -->
+    <section class="section-wrap">
+        <div class="section-header">
+            <span class="section-badge">Стандарты качества</span>
+            <h2 class="section-title">Стандарты Качества AION: <span class="grad">Партнёр и Approved</span></h2>
+            <p class="section-desc">
+                В экосистеме AION действуют прозрачные стандарты сотрудничества: от базового цифрового и офлайн-размещения до международной сертификации заведений.
+            </p>
+        </div>
+
+        <div class="tier-comparison">
+            <!-- БАЗОВЫЙ ОФЛАЙН ПАРТНЕР -->
+            <div class="tier-card partner">
+                <span class="tier-badge partner">Офлайн и Каталог</span>
+                <h4>Статус «Партнёр AION»</h4>
+                <p style="color: var(--text-secondary);">Базовое размещение в каталоге и установка физических промо-материалов (тейблтенты, стойки с QR).</p>
+                
+                <ul class="tier-list">
+                    <li>Бесплатное размещение карточки бизнеса в каталоге ($0).</li>
+                    <li>Фирменная плашка <strong>«Партнёр AION»</strong> в приложении.</li>
+                    <li>Повышенная выдача в геолокационном разделе «Места рядом».</li>
+                    <li>Установка стильных брендированных тейблтентов с индивидуальным QR-кодом.</li>
+                    <li><strong>Пассивный доход: 20% от комиссии AION</strong> со всех будущих трат гостей заведения в экосистеме по всему миру.</li>
+                </ul>
+            </div>
+
+            <!-- ЗНАК APPROVED -->
+            <div class="tier-card approved">
+                <span class="tier-badge approved">Престижная Сертификация</span>
+                <h4 style="color: var(--accent-gold);">Знак «AION Approved»</h4>
+                <p style="color: var(--text-secondary);">Знак высшего доверия для заведений (аналог звезды Michelin или статуса Top-Rated в TripAdvisor). Физическая наклейка на входную группу.</p>
+                
+                <ul class="tier-list">
+                    <li><strong>Зачем заведениям:</strong> Международный маркер престижа и безопасности, привлекающий платежеспособный поток туристов без языковых барьеров и сомнений.</li>
+                    <li><strong>Не выдается автоматически:</strong> Статус нельзя купить, он присваивается строго по отдельной заявке на сертификацию.</li>
+                    <li><strong>Независимый аудит:</strong> Выездная проверка тайного покупателя AION по строгим чек-листам качества.</li>
+                    <li><strong>Фильтр Zero Tolerance:</strong> Мгновенная дисквалификация за антисанитарию, скрытые наценки в чеке или обман гостей.</li>
+                    <li><strong>Строгий порог:</strong> Проходной балл аудита — <strong>не менее 80 из 100</strong>. Выдается ровно на 1 год.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. ДЛЯ БЛОГЕРОВ И КРЕАТОРОВ -->
+    <section class="section-wrap">
+        <div class="section-header">
+            <span class="section-badge">Медиа-партнерство</span>
+            <h2 class="section-title">Для Блогеров: <span class="grad">AION Creator Lab</span></h2>
+            <p class="section-desc">
+                Переход от разовых дешевых рекламных интеграций к построению долгосрочного пассивного капитала.
+            </p>
+        </div>
+
+        <div class="bento-grid-3">
+            <div class="bento-card">
+                <div class="bento-icon">📈</div>
+                <h3>LTV вместо разовой рекламы</h3>
+                <p>Рекомендуя по-настоящему нужный и полезный сервис для жизни за границей, автор создает долгосрочный пассивный капитал: аудитория годами арендует байки, виллы и заказывает услуги, а процент поступает на автопилоте.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">🤝</div>
+                <h3>Комьюнити Авторов Контента</h3>
+                <p>Бесплатный инкубатор для креаторов: сильное окружение единомышленников, Шеф-продюсер, разборы алгоритмов Instagram, YouTube и TikTok, совместные коллаборации и поддержка для кратного роста охватов.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">🤖</div>
+                <h3>ИИ-Креатор и База Сценариев</h3>
+                <p>Встроенный персональный ИИ-ассистент контент-креатора для быстрой генерации вовлекающих постов и рилс, плюс постоянно пополняемая база вирусных хуков, сценариев и воронок.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. ИНСТРУКЦИИ ПО ПОДКЛЮЧЕНИЮ (КАК НАЧАТЬ) -->
+    <section id="onboarding" class="section-wrap" style="border-bottom: none; padding-bottom: 40px;">
+        <div class="section-header">
+            <span class="section-badge">Быстрый старт</span>
+            <h2 class="section-title">Как начать прямо сейчас: <span class="grad">Пошаговые Инструкции</span></h2>
+            <p class="section-desc">
+                Выберите свою роль и присоединяйтесь к глобальной экосистеме AION за пару простых шагов.
+            </p>
+        </div>
+
+        <div class="instructions-grid">
+            
+            <!-- 1. ДЛЯ ПОЛЬЗОВАТЕЛЕЙ -->
+            <div class="onboard-card user">
+                <div>
+                    <span class="onboard-badge">🧑‍💻 Путешественникам и Экспатам</span>
+                    <h3>Запуск в 1 клик</h3>
+                    <p class="intro-desc">
+                        Все проверенные сервисы, аренда байков, жилье, рестораны и экспатские локации в едином окне прямо внутри Telegram.
+                    </p>
+
+                    <ul class="steps-mini">
+                        <li>
+                            <span class="step-circle">1</span>
+                            <strong>Перейдите в Telegram:</strong> Нажмите на кнопку ниже, чтобы запустить приложение AION в Telegram.
+                        </li>
+                        <li>
+                            <span class="step-circle">2</span>
+                            <strong>Выберите локацию:</strong> Укажите ваш город (Нячанг, Дананг, Бангкок, Бали и др.) или разрешите автоопределение геолокации.
+                        </li>
+                        <li>
+                            <span class="step-circle">3</span>
+                            <strong>Пользуйтесь с гарантией:</strong> Заказывайте проверенные услуги без риска скама и по честным открытым ценам.
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <!-- Ссылка на бота с рефералкой Руслана -->
+                    <a href="https://t.me/AIONTravelBot/app?startapp=ref_COX2XQLL" target="_blank" class="btn-action-full cyan">
+                        <span>🚀 Открыть AION в Telegram</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. ДЛЯ БИЗНЕСА -->
+            <div class="onboard-card biz">
+                <div>
+                    <span class="onboard-badge">🏢 Владельцам Бизнеса</span>
+                    <h3>Добавить заведение в каталог</h3>
+                    <p class="intro-desc">
+                        Бесплатный поток платежеспособных туристов без абонентской платы ($0) плюс пожизненный пассивный доход с ваших столиков через QR.
+                    </p>
+
+                    <ul class="steps-mini">
+                        <li>
+                            <span class="step-circle">1</span>
+                            <strong>Войдите в приложение:</strong> Зайдите в AION по ссылке ниже.
+                        </li>
+                        <li>
+                            <span class="step-circle">2</span>
+                            <strong>Подайте заявку:</strong> В личном кабинете откройте раздел <strong>«Мой бизнес»</strong> и заполните короткую анкету (название, сфера, контакты).
+                        </li>
+                        <li>
+                            <span class="step-circle">3</span>
+                            <strong>Модерация:</strong> Дождитесь быстрого одобрения модератором сервиса.
+                        </li>
+                        <li>
+                            <span class="step-circle">4</span>
+                            <strong>Настройка в CRM:</strong> Вам откроется доступ в личную CRM AION. Добавьте описание, фото, каталог услуг с ценами и сгенерируйте персональный реферальный QR-код для гостей заведения.
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <!-- Ссылка на бота для бизнеса -->
+                    <a href="https://t.me/AIONTravelBot/app?startapp=ref_COX2XQLL" target="_blank" class="btn-action-full gold">
+                        <span>🏢 Подключить бизнес в AION</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. ДЛЯ БЛОГЕРОВ -->
+            <div class="onboard-card creator">
+                <div>
+                    <span class="onboard-badge">🎬 Блогерам и Авторам</span>
+                    <h3>AION Creator Lab</h3>
+                    <p class="intro-desc">
+                        Комьюнити авторов контента, ИИ-креатор и база готовых сценариев. Зарабатывайте пассивный капитал на рекомендации нужного сервиса и растите в сильной среде.
+                    </p>
+
+                    <ul class="steps-mini">
+                        <li>
+                            <span class="step-circle">1</span>
+                            <strong>Изучите программу:</strong> Познакомьтесь с условиями и калькулятором дохода на сайте Creator Lab.
+                        </li>
+                        <li>
+                            <span class="step-circle">2</span>
+                            <strong>Подключитесь к AION:</strong> Запустите бота по реферальной ссылке для закрепления партнерского статуса.
+                        </li>
+                        <li>
+                            <span class="step-circle">3</span>
+                            <strong>Свяжитесь с куратором:</strong> Напишите куратору проекта для получения индивидуальных условий и доступа в комьюнити.
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <!-- Ссылка на страницу Creator Lab -->
+                    <a href="https://aion-media.github.io/pr/creatorlab.html" target="_blank" class="btn-action-full purple">
+                        <span>🌐 AION Creator Lab</span>
+                    </a>
+                    <!-- Ссылка на куратора Руслана в Telegram (без никнейма на кнопке) -->
+                    <a href="https://t.me/litt1e_roo" target="_blank" class="btn-outline-sub">
+                        <span>💬 Написать куратору проекта</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2026 AION Global Ecosystem. Все права защищены. Весь мир — твой район.</p>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
