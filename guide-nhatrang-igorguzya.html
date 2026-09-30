@@ -1,0 +1,1865 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Нячанг Инсайдер | Твой душевный гид по жизни и зимовке ☀️</title>
+  <meta name="description" content="Полный подробный гайд по Нячангу: сим-карты, обмен валюты, банкоматы VRB, аренда байков без прав, жильё, педиатр на дом, школы, кофейни и пляжи.">
+  <meta property="og:title" content="Нячанг Инсайдер | Полный гайд для экспатов и туристов">
+  <meta property="og:description" content="Все проверенные места, лайфхаки, экстренные службы и сервисы Нячанга в одном интерактивном приложении.">
+
+  <style>
+    :root {
+      --primary: #028090;
+      --primary-dark: #006674;
+      --primary-light: #E0F4F7;
+      --accent: #F4A261;
+      --accent-warm: #E76F51;
+      --sand-bg: #FAF7F2;
+      --card-bg: #FFFFFF;
+      --text-main: #1D2A3A;
+      --text-muted: #5C6E82;
+      --border-color: #E2E8F0;
+      --badge-green: #10B981;
+      --badge-green-bg: #ECFDF5;
+      --badge-orange: #F59E0B;
+      --badge-orange-bg: #FFFBEB;
+      --badge-red: #EF4444;
+      --badge-red-bg: #FEF2F2;
+      --badge-blue: #0284C7;
+      --badge-blue-bg: #F0F9FF;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(2, 128, 144, 0.09);
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 24px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--sand-bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 90px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* === HERO HEADER === */
+    .hero {
+      background: linear-gradient(155deg, rgba(2, 128, 144, 0.92) 0%, rgba(0, 168, 150, 0.88) 60%, rgba(2, 195, 154, 0.85) 100%),
+                  url('https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: white;
+      padding: 42px 20px 36px;
+      border-radius: 0 0 32px 32px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 190px;
+      height: 190px;
+      background: radial-gradient(circle, rgba(244, 162, 97, 0.35) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* === AION TOP PILL (AIRY TOP BUTTON) === */
+    .aion-top-pill {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 16px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      text-decoration: none;
+      color: white;
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    }
+
+    .aion-top-pill:hover {
+      background: rgba(255, 255, 255, 0.24);
+      border-color: rgba(255, 255, 255, 0.45);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .aion-top-pill:active {
+      transform: scale(0.98);
+    }
+
+    .aion-pill-badge {
+      background: #FFFFFF;
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      padding: 4px 9px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .aion-pill-text {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      min-width: 0;
+    }
+
+    .aion-pill-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #FFFFFF;
+    }
+
+    .aion-pill-sub {
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.3;
+      margin-top: 2px;
+    }
+
+    .aion-pill-arrow {
+      width: 16px;
+      height: 16px;
+      color: rgba(255, 255, 255, 0.85);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .aion-top-pill:hover .aion-pill-arrow {
+      transform: translateX(2px);
+      color: #FFFFFF;
+    }
+
+    .hero h1 {
+      font-size: 27px;
+      line-height: 1.25;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.94);
+      font-weight: 400;
+      max-width: 520px;
+    }
+
+    /* === SEARCH CONTAINER === */
+    .search-container {
+      padding: 0 16px;
+      margin-top: -22px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .search-box {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      padding: 6px 16px;
+      border: 1.5px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .search-box:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 4px 20px rgba(2, 128, 144, 0.2);
+    }
+
+    .search-box svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--text-muted);
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      font-size: 15px;
+      width: 100%;
+      color: var(--text-main);
+      background: transparent;
+      padding: 8px 0;
+    }
+
+    .clear-search {
+      background: none;
+      border: none;
+      color: #94A3B8;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      padding: 4px;
+    }
+
+    /* === STICKY CATEGORIES BAR WITH SCROLLER BUTTONS === */
+    .nav-tabs-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 25;
+      background: rgba(250, 247, 242, 0.96);
+      backdrop-filter: blur(14px);
+      padding: 10px 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .scroll-arrow-btn {
+      width: 32px;
+      height: 32px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .scroll-arrow-btn:active {
+      transform: scale(0.92);
+      background: var(--primary-light);
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: #CBD5E1 transparent;
+      padding: 4px 2px;
+      flex-grow: 1;
+    }
+
+    .nav-tabs::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .nav-tabs::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 10px;
+    }
+
+    .tab-btn {
+      background: var(--card-bg);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      padding: 7px 15px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(2, 128, 144, 0.28);
+    }
+
+    /* === CONTAINER & SECTIONS === */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .section-block {
+      margin-bottom: 32px;
+      scroll-margin-top: 75px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid rgba(2, 128, 144, 0.12);
+    }
+
+    .section-title {
+      font-size: 19.5px;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-intro {
+      font-size: 14px;
+      color: #4B5563;
+      margin: 0 0 16px 0;
+      line-height: 1.5;
+    }
+
+    /* === CARDS & LAYOUTS === */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      gap: 12px;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.35;
+    }
+
+    /* === HIGHLIGHT PILLS & BADGES === */
+    .badge-pill {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .badge-lifehack { background: var(--badge-green-bg); color: #065F46; border: 1px solid #A7F3D0; }
+    .badge-important { background: var(--badge-red-bg); color: #991B1B; border: 1px solid #FECACA; }
+    .badge-info { background: var(--badge-blue-bg); color: #075985; border: 1px solid #BAE6FD; }
+    .badge-top { background: var(--badge-orange-bg); color: #92400E; border: 1px solid #FDE68A; }
+    .badge-aion { background: #E0F2FE; color: #0369A1; border: 1.5px solid #7DD3FC; font-weight: 800; }
+
+    /* === CALLOUT BOXES === */
+    .callout {
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin: 12px 0;
+      font-size: 14px;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .callout-lifehack {
+      background: #F0FDF4;
+      border-left: 4px solid #10B981;
+      color: #064E3B;
+    }
+
+    .callout-important {
+      background: #FEF2F2;
+      border-left: 4px solid #EF4444;
+      color: #7F1D1D;
+    }
+
+    .callout-info {
+      background: #F0F9FF;
+      border-left: 4px solid #0284C7;
+      color: #0C4A6E;
+    }
+
+    .callout-header {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+    }
+
+    /* === AION NATIVE CARD === */
+    .card-aion-native {
+      background: linear-gradient(145deg, #FFFFFF 0%, #F0F9FA 100%);
+      border: 1.5px solid #BAE6FD;
+      position: relative;
+      box-shadow: 0 6px 20px rgba(2, 128, 144, 0.08);
+    }
+
+    .card-aion-native::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--primary);
+    }
+
+    .aion-desc-box {
+      background: rgba(2, 128, 144, 0.06);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      color: var(--primary-dark);
+      margin: 10px 0 14px;
+      border: 1px dashed rgba(2, 128, 144, 0.3);
+    }
+
+    /* === OPERATOR TARIFF TABLE / LIST === */
+    .op-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .op-box {
+      background: #F8FAFC;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+
+    .op-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .op-name {
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--text-main);
+    }
+
+    .bullet-list {
+      list-style: none;
+      margin: 8px 0;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      font-size: 14.5px;
+      color: #334155;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      color: var(--primary);
+      font-size: 20px;
+      position: absolute;
+      left: 6px;
+      top: -3px;
+    }
+
+    /* === EMERGENCY CONTACTS GRID === */
+    .emergency-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      margin: 12px 0 16px;
+    }
+
+    .emergency-item {
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      border-radius: 12px;
+      padding: 12px 8px;
+      text-align: center;
+    }
+
+    .emergency-num {
+      font-size: 22px;
+      font-weight: 900;
+      color: #DC2626;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .emergency-label {
+      font-size: 12px;
+      color: #7F1D1D;
+      font-weight: 600;
+    }
+
+    /* === ACTION BUTTONS & LINKS === */
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .btn-action {
+      background: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      color: var(--text-main);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-action:hover {
+      background: #EDF2F7;
+      border-color: #94A3B8;
+    }
+
+    .btn-map {
+      background: #F0FDF4;
+      border-color: #86EFAC;
+      color: #166534;
+    }
+
+    .btn-map:hover {
+      background: #DCFCE7;
+      border-color: #4ADE80;
+    }
+
+    .btn-aion {
+      background: linear-gradient(135deg, #028090 0%, #00A896 100%);
+      color: white !important;
+      border: none;
+      box-shadow: 0 4px 12px rgba(2, 128, 144, 0.28);
+    }
+
+    .btn-aion:hover {
+      background: linear-gradient(135deg, #006674 0%, #028090 100%);
+      box-shadow: 0 6px 16px rgba(2, 128, 144, 0.38);
+    }
+
+    .btn-copy {
+      background: #F1F5F9;
+      color: #334155;
+    }
+
+    /* === TOAST === */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1E293B;
+      color: white;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      z-index: 999;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* === FOOTER === */
+    .footer {
+      text-align: center;
+      padding: 36px 20px 20px;
+      color: var(--text-muted);
+      font-size: 13.5px;
+    }
+
+    .footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    @media (min-width: 600px) {
+      .hero h1 { font-size: 34px; }
+      .op-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <!-- AIRY AION TOP BUTTON -->
+    <a href="https://t.me/AIONTravelBot/app?startapp=ref_YFOP4TXH" target="_blank" rel="noopener" class="aion-top-pill" title="Открыть экосистему AION">
+      <span class="aion-pill-badge">AION</span>
+      <div class="aion-pill-text">
+        <span class="aion-pill-title">Удобный сервис для жизни за границей</span>
+        <span class="aion-pill-sub">Все услуги, сервисы и полезные места в одном месте</span>
+      </div>
+      <svg class="aion-pill-arrow" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+      </svg>
+    </a>
+
+    <div class="badge-hero">Нячанг • Живой гайд 2026–2027</div>
+    <h1>Твой лёгкий старт<br>в Нячанге ☀️🌴</h1>
+    <p>Все проверенные локации, сим-карты, честные обменники, банкоматы VRB, аренда скутеров без прав, школы, медицина и лучшие споты города.</p>
+  </header>
+
+  <!-- SEARCH BOX -->
+  <div class="search-container">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"/></svg>
+      <input type="text" id="searchInput" placeholder="Искать: VRB, симка, педиатр, байк, кофе, Emerald, Sun Kids..." oninput="handleSearch()">
+      <button class="clear-search" id="clearBtn" onclick="clearSearch()">&times;</button>
+    </div>
+  </div>
+
+  <!-- NAVIGATION TABS WITH ARROW CONTROLS -->
+  <nav class="nav-tabs-wrapper">
+    <button class="scroll-arrow-btn" onclick="scrollTabs(-180)" title="Прокрутить назад">&lsaquo;</button>
+    <div class="nav-tabs" id="tabBar">
+      <button class="tab-btn active" onclick="filterCategory('all', this)">🌴 Все темы</button>
+      <button class="tab-btn" onclick="filterCategory('emergency', this)">🚨 Экстренные службы</button>
+      <button class="tab-btn" onclick="filterCategory('sim', this)">📱 Связь & SIM</button>
+      <button class="tab-btn" onclick="filterCategory('taxi', this)">🚕 Такси & Транспорт</button>
+      <button class="tab-btn" onclick="filterCategory('bike', this)">🛵 Аренда байка</button>
+      <button class="tab-btn" onclick="filterCategory('money', this)">💵 Деньги, VRB & Обмен</button>
+      <button class="tab-btn" onclick="filterCategory('housing', this)">🏡 Жильё & Районы</button>
+      <button class="tab-btn" onclick="filterCategory('delivery', this)">📦 Доставка & Шопинг</button>
+      <button class="tab-btn" onclick="filterCategory('health', this)">🏥 Здоровье & Педиатр</button>
+      <button class="tab-btn" onclick="filterCategory('beauty', this)">💇‍♀️ Бьюти & Уход</button>
+      <button class="tab-btn" onclick="filterCategory('kids', this)">👶 Дети, Школы & Сады</button>
+      <button class="tab-btn" onclick="filterCategory('coffee', this)">☕ Кофейни</button>
+      <button class="tab-btn" onclick="filterCategory('rooftops', this)">🍸 Руфтопы & Бары</button>
+      <button class="tab-btn" onclick="filterCategory('beaches', this)">🏖️ Пляжи</button>
+      <button class="tab-btn" onclick="filterCategory('apps', this)">⚡ Топ приложений</button>
+    </div>
+    <button class="scroll-arrow-btn" onclick="scrollTabs(180)" title="Прокрутить вперёд">&rsaquo;</button>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+
+    <!-- 0. ЭКСТРЕННЫЕ СЛУЖБЫ И БЕЗОПАСНОСТЬ -->
+    <section class="section-block" data-category="emergency" id="sec-emergency">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">🚨</span> Экстренные службы и бытовой SOS</h2>
+      </div>
+      <p class="section-intro">Бытовые форс-мажоры случаются с каждым. Сохрани эти номера и фразы в заметки заранее, чтобы в любой ситуации чувствовать себя уверенно и спокойно.</p>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Номера экстренной помощи во Вьетнаме</div>
+          <span class="badge-pill badge-important">⚠️ Сохранить в телефон</span>
+        </div>
+        <div class="card-body">
+          <div class="emergency-grid">
+            <div class="emergency-item">
+              <div class="emergency-num">115</div>
+              <div class="emergency-label">🚑 Скорая помощь (Cấp cứu)</div>
+            </div>
+            <div class="emergency-item">
+              <div class="emergency-num">113</div>
+              <div class="emergency-label">👮 Полиция (Cảnh sát)</div>
+            </div>
+            <div class="emergency-item">
+              <div class="emergency-num">114</div>
+              <div class="emergency-label">🚒 Пожарные (Cứu hỏa)</div>
+            </div>
+          </div>
+
+          <div class="callout callout-important">
+            <div class="callout-header">🛡️ Туристическая полиция и помощь иностранцам в Нячанге:</div>
+            <div>Горячая линия поддержки туристов: <b>(+84) 258 3528 000</b> или <b>0947 528 000</b>. Если возник конфликт, потеря паспорта или происшествие на улице — звоните сюда, здесь говорят по-английски и помогают экспатам.</div>
+          </div>
+
+          <div class="callout callout-lifehack">
+            <div class="callout-header">💡 Что делать, если прорвало кран или потёк кондиционер?</div>
+            <div>
+              1. <b>В кондоминиумах:</b> спуститесь на ресепшен или найдите охранника (Bảo vệ) и скажите: <i>«Ban Quản Lý»</i> (управляющая компания). Покажите фразу на вьетнамском:
+              <br>• <b>«Ống nước bị rò rỉ / hỏng»</b> — протечка/прорыв водопровода.
+              <br>• <b>«Máy lạnh bị chảy nước / hỏng»</b> — потёк или сломался кондиционер.
+              <br>2. Дежурный сантехник здания обычно приходит в течение 10–20 минут бесплатно или за символические 50–100k донгов «на чай».
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. СВЯЗЬ И ИНТЕРНЕТ: ТРИ ОПЕРАТОРА -->
+    <section class="section-block" data-category="sim" id="sec-sim">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">📱</span> Связь и SIM: полный разбор 3 операторов</h2>
+      </div>
+      <p class="section-intro">Быстрый мобильный 4G/5G во Вьетнаме стоит копейки и ловит даже в открытом море. Главное — оформить номер официально по загранпаспорту.</p>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Сравнение мобильных операторов Вьетнама</div>
+          <span class="badge-pill badge-top">Выбор связи</span>
+        </div>
+        <div class="card-body">
+          <p>В стране 3 главных мобильных гиганта. Вот честный разбор каждого:</p>
+
+          <div class="op-grid">
+            <!-- VIETTEL -->
+            <div class="op-box">
+              <div class="op-header">
+                <span class="op-name">1. Viettel 👑</span>
+                <span class="badge-pill badge-lifehack">Рекомендация №1</span>
+              </div>
+              <ul class="bullet-list">
+                <li><b>Плюсы:</b> Безоговорочный лидер по покрытию. Ловит на 99% территории страны — в горах Далата, на перевалах, диких пляжах и островах. Самый стабильный 4G/5G.</li>
+                <li><b>Минусы:</b> В официальных офисах часто очереди, строго требуют загранпаспорт.</li>
+                <li><b>Тарифы:</b> Пакет <b>MXH100</b> (~100 000 VND / ~4$ в мес) — 1 ГБ в день + безлимит на YouTube/TikTok. Пакет <b>V90B</b> (90 000 VND / 1 ГБ в день). Пакет <b>ST150K</b> (150 000 VND / 3 ГБ в день).</li>
+              </ul>
+            </div>
+
+            <!-- VINAPHONE -->
+            <div class="op-box">
+              <div class="op-header">
+                <span class="op-name">2. Vinaphone (VNPT)</span>
+                <span class="badge-pill badge-info">Отличный 4G</span>
+              </div>
+              <ul class="bullet-list">
+                <li><b>Плюсы:</b> Государственная сеть, превосходная скорость в городах и вдоль шоссе, много тарифов с огромным пакетом трафика.</li>
+                <li><b>Минусы:</b> В глухих деревнях и глубоких джунглях покрытие чуть слабее, чем у Viettel.</li>
+                <li><b>Тарифы:</b> Пакет <b>BIG90</b> (90 000 VND / 1 ГБ в день), <b>VD120N</b> (120 000 VND / 1.5 ГБ в день + бесплатные звонки).</li>
+              </ul>
+            </div>
+
+            <!-- MOBIFONE -->
+            <div class="op-box">
+              <div class="op-header">
+                <span class="op-name">3. Mobifone</span>
+                <span class="badge-pill badge-top">Бюджетный</span>
+              </div>
+              <ul class="bullet-list">
+                <li><b>Плюсы:</b> Старейший оператор, хорошая связь в центре Нячанга и туристических зонах, недорогие промо-тарифы.</li>
+                <li><b>Минусы:</b> Самое слабое покрытие за пределами крупных городов. Если планируете трип на байке на север или в горы — не рекомендуем.</li>
+                <li><b>Тарифы:</b> Пакет <b>PT90</b> (90 000 VND / 1 ГБ в день).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout callout-important">
+            <div class="callout-header">⚠️ Важное предостережение:</div>
+            <div>Покупайте SIM-карту <b>ТОЛЬКО в официальных центрах операторов</b> (или крупных сетях электроники FPT Shop, Thế Giới Di Động) с регистрацией на ваш загранпаспорт. Симки, купленные с рук в аэропорту или уличных лавках, блокируются службой связи через 3–7 дней!</div>
+          </div>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Cửa+hàng+Viettel+Nha+Trang" target="_blank">
+            📍 Офисы Viettel на карте Нячанга
+          </a>
+          <button class="btn-action btn-copy" onclick="copyText('*101#', 'USSD-код *101# скопирован!')">
+            📞 Проверка баланса: *101#
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ТАКСИ: ПОЛНЫЙ РАЗБОР -->
+    <section class="section-block" data-category="taxi" id="sec-taxi">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">🚕</span> Такси: Xanh SM, Maxim и Grab</h2>
+      </div>
+      <p class="section-intro">Нячанг — компактный курорт, и поездки на такси здесь стоят недорого. Рассказываем, почему экспаты пересаживаются с Grab на новенькие бирюзовые электромобили.</p>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Xanh SM (Голубые электромобили от VinFast)</div>
+          <span class="badge-pill badge-lifehack">Фаворит №1</span>
+        </div>
+        <div class="card-body">
+          <p>Те самые шустрые бирюзово-голубые машины и электроскутеры на дорогах Нячанга — это <b>Xanh SM</b> (сервис холдинга Vingroup).</p>
+          <ul class="bullet-list">
+            <li><b>Никакого запаха бензина:</b> 100% новый электропарк (VF 5, VF e34, VF 8). В салоне всегда чисто, играет спокойная музыка и работает кондиционер.</li>
+            <li><b>Дешевле Grab на 15–30%:</b> Grab давно зажрался и включает дикие коэффициенты x2 и x3 в часы пик и ливень. У Xanh SM цены стабильные и прозрачные.</li>
+            <li><b>Культура водителей:</b> вежливые ребята в униформе, не курят и водят аккуратно.</li>
+            <li><b>Xanh SM Bike:</b> стильное бирюзовое электробайк-такси с фирменными чистыми шлемами.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Maxim vs Grab: когда что вызывать?</div>
+          <span class="badge-pill badge-info">Сравнение</span>
+        </div>
+        <div class="card-body">
+          <ul class="bullet-list">
+            <li><b>Maxim:</b> чемпион по экономии. Если нужно быстро доехать на байк-такси на соседнюю улицу или рынок — поездка обойдётся в смешные 15 000 – 25 000 VND (~0.7–1$).</li>
+            <li><b>Grab:</b> международный гигант. Плюсы — огромный парк авто и встроенная доставка еды (GrabFood). Минусы — самый дорогой тариф среди всех служб.</li>
+          </ul>
+          <div class="callout callout-lifehack">
+            <div class="callout-header">💡 Лайфхак экспата:</div>
+            <div>Для авто заказывайте <b>Xanh SM</b>, а для быстрого и ультрабюджетного байк-такси держите под рукой <b>Maxim</b>!</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. АРЕНДА БАЙКА -->
+    <section class="section-block" data-category="bike" id="sec-bike">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">🛵</span> Аренда байка и езда без прав</h2>
+      </div>
+      <p class="section-intro">Скутер в Нячанге — это полная свобода передвижения к диким пляжам, горным водопадам и рынкам. Разбираем реальные цены, правила и как кататься без прав.</p>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Правила аренды, цены и полиция</div>
+          <span class="badge-pill badge-top">Правила движения</span>
+        </div>
+        <div class="card-body">
+          <p>Скутер в Нячанге — это свобода передвижения. Вот реальные цифры и законы:</p>
+          <ul class="bullet-list">
+            <li><b>Реальная стоимость помесячной аренды:</b> от <b>1 500 000 до 2 500 000 VND</b> (~60–100$) в месяц в зависимости от новизны скутера (Honda Vision, Air Blade, Lead, Yamaha NVX). Посуточно — 100 000 – 150 000 VND.</li>
+            <li><b>Скоростной режим:</b> по городу строгий лимит <b>не более 40 км/ч</b>. Всегда надевайте и застегивайте шлем! На главной набережной Tran Phu регулярно дежурят посты дорожной полиции.</li>
+            <li><b>Залог:</b> ни при каких обстоятельствах не отдавайте оригинал загранпаспорта уличным прокатчикам! Берите байк там, где принимают копию паспорта или денежный депозит (1–2 млн донгов).</li>
+          </ul>
+
+          <div class="callout callout-lifehack">
+            <div class="callout-header">💡 Скутеры до 50 кубов — МОЖНО БЕЗ ПРАВ!</div>
+            <div>По законам Вьетнама на бензиновые скутеры с объемом двигателя <b>до 50 куб. см (50cc)</b>, а также на электробайки небольшой мощности <b>НЕ ТРЕБУЮТСЯ водительские права</b>! Это идеальный и легальный вариант для тех, у кого нет международных прав категории А (МВУ).</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AION БАЙКИ -->
+      <div class="card card-aion-native">
+        <div class="card-head">
+          <div class="card-title">🛵 Где безопасно арендовать байк в Нячанге?</div>
+          <span class="badge-pill badge-aion">AION Транспорт</span>
+        </div>
+        <div class="card-body">
+          <p>Вместо уличных точек со «скрученными» старыми скутерами и сомнительными требованиями к залогу, воспользуйтесь сервисом <b>AION</b>.</p>
+          <div class="aion-desc-box">
+            <b>Что такое AION?</b> Это цифровая экосистема жизни во Вьетнаме в одном окне, где собраны проверенные поставщики услуг с прозрачными договорами и честными отзывами экспатов.
+          </div>
+          <p>В разделе транспорта AION собраны надежные прокатчики Нячанга: отличное техническое состояние байков, доставка прямо к вашему отелю/кондо и адекватные условия без риска паспортом.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-aion" href="https://t.me/AIONTravelBot/app?startapp=ref_YFOP4TXH" target="_blank">
+            👉 Выбрать байк в каталоге AION
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. ДЕНЬГИ, ОБМЕН И VRB БАНК -->
+    <section class="section-block" data-category="money" id="sec-money">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">💵</span> Деньги, банкоматы VRB и лучший курс</h2>
+      </div>
+      <p class="section-intro">Вьетнам — страна наличных донгов. Но с российскими и иностранными картами жить здесь просто, если знать правильные банкоматы и проверенные ювелирные лавки.</p>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Снятие рублей с карт МИР в банкоматах VRB</div>
+          <span class="badge-pill badge-lifehack">Топ для граждан РФ</span>
+        </div>
+        <div class="card-body">
+          <p><b>Вьетнамо-Российский банк (VRB — Vietnam-Russia Joint Venture Bank)</b> — главное спасение для тех, у кого деньги на российских картах.</p>
+          <ul class="bullet-list">
+            <li><b>Как это работает:</b> Вы вставляете карту <b>МИР</b> (Тинькофф/Т-Банк, ВТБ, Сбер и др.) в банкомат VRB и <b>сразу снимаете наличные вьетнамские донги</b>! Рубли конвертируются по внутреннему межбанковскому курсу.</li>
+            <li>Лимит на одно снятие обычно до 2 000 000 – 3 000 000 VND за транзакцию (можно снимать несколько раз подряд).</li>
+            <li><b>Банкоматы без комиссии для зарубежных карт:</b> если у вас карты Казахстана, Кыргызстана, Европы или Грузии — снимайте в <b>VPBank</b> и <b>TPBank</b> (они не берут локальную комиссию банкомата).</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=VRB+Bank+Nha+Trang" target="_blank">
+            📍 Банк VRB в Нячанге на карте Google
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Обмен наличных долларов и евро: культовые Tiệm Vàng</div>
+          <span class="badge-pill badge-top">Максимальный курс</span>
+        </div>
+        <div class="card-body">
+          <p>В банках курс невыгодный. Весь Нячанг меняет наличную валюту в ювелирных магазинах у рынка Чо Дам (Chợ Đầm):</p>
+          <ul class="bullet-list">
+            <li><b>Kim Vinh</b> и <b>Kim Chung</b> — самые известные и надежные ювелирные лавки с наивысшим курсом в городе.</li>
+            <li><b>Важно:</b> берите новые 100-долларовые купюры («синие» от 2013 года) в идеальном состоянии без пятен и надписей — за них дают максимальный курс. Купюры старого образца или мелкого номинала принимают с дисконтом.</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Tiệm+Vàng+Kim+Vinh+Nha+Trang" target="_blank">
+            📍 Ювелирный Kim Vinh на карте
+          </a>
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Tiệm+Vàng+Kim+Chung+Nha+Trang" target="_blank">
+            📍 Ювелирный Kim Chung на карте
+          </a>
+        </div>
+      </div>
+
+      <!-- AION ОБМЕН ВАЛЮТЫ -->
+      <div class="card card-aion-native">
+        <div class="card-head">
+          <div class="card-title">💱 Безопасный онлайн-обмен рублей на донги</div>
+          <span class="badge-pill badge-aion">AION Финансы</span>
+        </div>
+        <div class="card-body">
+          <p>Не хотите искать банкоматы или стоять в очереди в ювелирный? В приложении <b>AION</b> есть проверенный раздел обмена валют.</p>
+          <div class="aion-desc-box">
+            <b>AION</b> объединяет верифицированных финансовых партнеров: вы переводите рубли с карты РФ (СБП, Тинькофф, Сбер), а наличные донги вам доставляют курьером прямо в апартаменты или переводят на вьетнамский VietQR-счет без риска нарваться на мошенников в чатах.
+          </div>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-aion" href="https://t.me/AIONTravelBot/app?startapp=ref_YFOP4TXH" target="_blank">
+            👉 Перейти в обмен денег в AION
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ЖИЛЬЁ И РАЙОНЫ ДЛЯ ЖИЗНИ -->
+    <section class="section-block" data-category="housing" id="sec-housing">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">🏡</span> Где жить: подробный гид по районам</h2>
+      </div>
+      <p class="section-intro">Нячанг протянулся вдоль океана на 15 километров: от шумного тусовочного центра до безмятежных северных кондоминиумов и закрытых вилл.</p>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">3 главных района Нячанга для экспатов</div>
+          <span class="badge-pill badge-info">Выбор локации</span>
+        </div>
+        <div class="card-body">
+          <ul class="bullet-list">
+            <li><b>1. Центр / Европейский квартал (Lộc Thọ, Tân Lập, ул. Biệt Thự, Hùng Vương):</b>
+              <br><i>Для кого:</i> Туристы, тусовщики, любители быть в центре движа.
+              <br><i>Плюсы:</i> Море через дорогу, сотни ресторанов, кофеен, спортзалов и спа в пешей доступности.
+              <br><i>Минусы:</i> Шумно от клубов и строек, плотный трафик, цены на апартаменты выше при меньшей площади.
+            </li>
+            <li><b>2. Северный район (Vĩnh Hải, мыс Hòn Chồng, Ба Ланг):</b>
+              <br><i>Для кого:</i> Зимовщики, удаленщики, семьи, ценящие комфорт и море.
+              <br><i>Плюсы:</i> Популярнейшие кондоминиумы (Scenia Bay, Mường Thanh Viễn Triều, Gold Coast). Зимой здесь практически нет больших волн благодаря мысу, вода спокойная. Дешевле аренда, дешевые локальные рынки морепродуктов, много экспатских кафе.
+              <br><i>Минусы:</i> До центра 7–10 минут на байке или такси.
+            </li>
+            <li><b>3. Юг / Посёлок Ан Вьен (An Viên):</b>
+              <br><i>Для кого:</i> Семьи с маленькими детьми, ценители тишины и загородного уюта.
+              <br><i>Плюсы:</i> Закрытый охраняемый коттеджный городок с виллами, тихими улочками и собственной закрытой бухтой без волн.
+              <br><i>Минусы:</i> Нет супермаркетов в шаговой доступности, за любой покупкой нужно ехать на транспорте.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AION АРЕНДА ЖИЛЬЯ -->
+      <div class="card card-aion-native">
+        <div class="card-head">
+          <div class="card-title">🔑 Аренда жилья без комиссий и наценок</div>
+          <span class="badge-pill badge-aion">AION Недвижимость</span>
+        </div>
+        <div class="card-body">
+          <p>В Telegram-чатах по жилью орудуют десятки перекупщиков, которые накручивают к стоимости квартиры 20–30% или исчезают вместе с депозитом.</p>
+          <div class="aion-desc-box">
+            <b>Что такое AION?</b> Это экосистема сервисов для жизни за рубежом. Раздел недвижимости AION позволяет находить проверенные апартаменты и виллы напрямую от владельцев и управляющих компаний — с честными фото, без скрытых агентских комиссий и с гарантией чистоты сделки.
+          </div>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-aion" href="https://t.me/AIONTravelBot/app?startapp=ref_YFOP4TXH" target="_blank">
+            👉 Смотреть квартиры в Нячанге через AION
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. ДОСТАВКА И МАРКЕТПЛЕЙСЫ -->
+    <section class="section-block" data-category="delivery" id="sec-delivery">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">📦</span> Доставка еды и шопинг: Shopee, Lazada & GrabFood</h2>
+      </div>
+      <p class="section-intro">Службы доставки во Вьетнаме работают молниеносно: любые товары с маркетплейсов и горячие блюда из ресторанов курьер доставит прямо к лифту твоего кондо.</p>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Shopee и Lazada — вьетнамский Ozon</div>
+          <span class="badge-pill badge-top">Маркетплейсы</span>
+        </div>
+        <div class="card-body">
+          <p>Здесь заказывают абсолютно всё: бытовую технику, одежду, посуду, спортивное питание, адаптеры и мебель.</p>
+          <ul class="bullet-list">
+            <li><b>Shopee:</b> абсолютный лидер по ассортименту и скорости доставки по Вьетнаму. Миллионы товаров с доставкой за 2–3 дня.</li>
+            <li><b>Lazada:</b> сильный конкурент с отличным разделом электроники (LazMall) и фирменными брендами с официальной гарантией.</li>
+            <li><b>Оплата наличными (COD — Cash On Delivery):</b> Выбирайте пункт COD при заказе! Курьер привезет посылку на ресепшен вашего дома, позвонит вам, и вы спокойно оплатите заказ наличными при получении.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Доставка готовой еды из ресторанов</div>
+          <span class="badge-pill badge-lifehack">Где вкусно заказать</span>
+        </div>
+        <div class="card-body">
+          <ul class="bullet-list">
+            <li><b>GrabFood:</b> самый массовый каталог кафе и ресторанов, огромный выбор уличной азиатской кухни, быстро и привычно.</li>
+            <li><b>ShopeeFood:</b> постоянные скидочные купоны (скидки 30–50% и бесплатная доставка). Очень популярен для заказа кофе, чая с шариками и десертов.</li>
+            <li><b>Capichi:</b> премиальное приложение экспатов. Здесь собраны лучшие европейские рестораны, аутентичные японские суши-бары, стейк-хаусы и пекарни с высочайшим качеством упаковки.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ЗДОРОВЬЕ, МЕДИЦИНА И ПЕДИАТР -->
+    <section class="section-block" data-category="health" id="sec-health">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">🏥</span> Медицина, госпитали и вызов педиатра</h2>
+      </div>
+      <p class="section-intro">От международных госпиталей с американской аккредитацией JCI до знаменитого Института Пастера — качественная медицина в Нячанге доступна каждому, если знать профиль клиник.</p>
+
+      <!-- БЛОК ВОДЫ И ЛЬДА В НАЧАЛЕ РАЗДЕЛА -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">💧 Питьевая вода, лёд в напитках и акклиматизация</div>
+          <span class="badge-pill badge-important">⚠️ Важно знать</span>
+        </div>
+        <div class="card-body">
+          <ul class="bullet-list">
+            <li><b>Вода для дома:</b> Воду из-под крана нельзя пить даже после кипячения! Для готовки, чая и питья заказывайте на ресепшене вашего кондоминиума 19-литровые синие бутыли питьевой воды (<b>Lavie</b> или <b>Miru</b>) за 55 000 – 65 000 VND (~2.5$).</li>
+            <li><b>Безопасность льда:</b> Заводской лед в кафе (крупные прозрачные цилиндры с отверстием внутри — <i>đá ống</i>) на 100% безопасен: его производят на сертифицированных фабриках из глубоко очищенной артезианской воды. Остерегайтесь только колотого бесформенного льда на старых уличных тележках в глухих переулках.</li>
+            <li><b>Фрукты и зелень:</b> В первые 2 недели мойте свежие овощи и фрукты бутилированной или фильтрованной водой, чтобы микрофлора мягко привыкла к тропикам.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ГОСПИТАЛЬ 1: VK HOSPITAL -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">1. VK Hospital (Военный госпиталь Вьет-Нга)</div>
+          <span class="badge-pill badge-top">Доступные цены</span>
+        </div>
+        <div class="card-body">
+          <p>Самый известный и часто посещаемый госпиталь среди русскоязычного сообщества Нячанга. Находится в туристической зоне (ул. Tuệ Tĩnh).</p>
+          <ul class="bullet-list">
+            <li><b>Русскоязычная поддержка:</b> В госпитале официально дежурят русскоговорящие переводчики и координаторы — они встречают пациентов у входа, помогают заполнить анкету и заходят с вами в кабинет врача.</li>
+            <li><b>Отделения:</b> Терапия, общая хирургия, ЛОР, травматология, гинекология, стоматология и физиотерапия.</li>
+            <li><b>Страховка:</b> Работают со многими российскими и международными туристическими страховками по гарантийным письмам либо оформляют официальные чеки и выписки для последующей компенсации.</li>
+            <li><b>Примерный уровень цен:</b>
+              <br>• Консультация дежурного терапевта/врача: <b>200 000 – 350 000 VND</b> (~8–14$).
+              <br>• Базовые анализы крови и мочи: <b>100 000 – 250 000 VND</b> (~4–10$).
+              <br>• Рентген / УЗИ: <b>200 000 – 400 000 VND</b> (~8–16$).
+            </li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=VK+Hospital+Nha+Trang" target="_blank">
+            📍 VK Hospital на карте
+          </a>
+        </div>
+      </div>
+
+      <!-- ГОСПИТАЛЬ 2: VINMEC -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">2. Vinmec International Hospital (Винмек)</div>
+          <span class="badge-pill badge-info">Премиум-стандарт JCI</span>
+        </div>
+        <div class="card-body">
+          <p>Флагманский госпиталь международного класса от корпорации Vingroup на юге города (ул. Trần Phú, перед въездом в посёлок An Viên).</p>
+          <ul class="bullet-list">
+            <li><b>Оснащение:</b> Работает по строгим стандартам международной медицинской аккредитации JCI. Современные томографы МРТ и КТ, новейшая лаборатория, реанимация, англоговорящие доктора и медсестры, палаты уровня 5-звездочного отеля.</li>
+            <li><b>Страховка:</b> Прямое безналичное обслуживание (Direct Billing) с большинством международных страховых компаний (Allianz, AXA, Bupa, Cigna и др.).</li>
+            <li><b>Примерный уровень цен:</b>
+              <br>• Консультация врача-специалиста: <b>700 000 – 1 200 000 VND</b> (~28–50$).
+              <br>• Сутки в комфортабельном стационаре: от <b>2 500 000 – 4 000 000 VND</b> (~100–160$).
+              <br>• Вызов реанимационной скорой помощи Vinmec: <b>1 000 000 – 2 000 000 VND</b>.
+            </li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Vinmec+Nha+Trang" target="_blank">
+            📍 Vinmec на карте
+          </a>
+        </div>
+      </div>
+
+      <!-- ГОСПИТАЛЬ 3: ИНСТИТУТ ПАСТЕРА -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">3. Институт Пастера (Viện Pasteur Nha Trang)</div>
+          <span class="badge-pill badge-lifehack">Анализы, Чекап & Вакцинация</span>
+        </div>
+        <div class="card-body">
+          <p>Старейший и авторитетнейший научно-исследовательский медицинский институт во Вьетнаме, основанный знаменитым ученым Александром Йерсеном в 1895 году (ул. Trần Phú, 8–10).</p>
+          <ul class="bullet-list">
+            <li><b>Лучшее место для анализов и чекапа:</b> Здесь находится передовая государственная лаборатория провинции. Если вам нужно быстро, точно и без лишних наценок коммерческих клиник сдать <b>любые анализы крови, гормоны, биохимию, маркеры инфекций, аллергопанели</b> или пройти <b>комплексный медицинский чекап организма (Check-up)</b> — приезжайте именно сюда утром с 7:30 натощак.</li>
+            <li><b>Центр вакцинации:</b> Официальный центр международных прививок (желтая лихорадка, бешенство, столбняк, гепатит А и В, японский энцефалит, грипп) с выдачей международного сертификата.</li>
+            <li><b>Примерный уровень цен:</b>
+              <br>• Лабораторные анализы крови: от <b>50 000 до 250 000 VND</b> (~2–10$).
+              <br>• Комплексные пакеты обследования (чекап): от <b>600 000 до 1 500 000 VND</b> (~25–60$).
+              <br>• Вакцины: от <b>150 000 до 450 000 VND</b> за дозу.
+            </li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Vien+Pasteur+Nha+Trang" target="_blank">
+            📍 Институт Пастера на карте
+          </a>
+        </div>
+      </div>
+
+      <!-- ГОСПИТАЛЬ 4: ГОСУДАРСТВЕННЫЙ ГОСПИТАЛЬ КХАНЬХОА -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">4. Главная многопрофильная больница Кханьхоа (Bệnh viện Đa khoa)</div>
+          <span class="badge-pill badge-important">Экстренная травматология 24/7</span>
+        </div>
+        <div class="card-body">
+          <p>Крупнейший государственный медицинский комплекс в центре города (ул. Quang Trung, 19). Сюда обращаются при тяжелых травмах, переломах после ДТП или экстренных ночных госпитализациях. Опытные травматологи и круглосуточное отделение скорой помощи.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Benh+Vien+Da+Khoa+Tinh+Khanh+Hoa" target="_blank">
+            📍 Больница Кханьхоа на карте
+          </a>
+        </div>
+      </div>
+
+      <!-- AION ПЕДИАТР НА ДОМ -->
+      <div class="card card-aion-native">
+        <div class="card-head">
+          <div class="card-title">🩺 Вызов русскоязычного педиатра на дом</div>
+          <span class="badge-pill badge-aion">Забота о детях</span>
+        </div>
+        <div class="card-body">
+          <p>Везти заболевшего малыша с температурой по жаре в многолюдную клинику — огромный стресс для ребенка и родителей.</p>
+          <div class="aion-desc-box">
+            <b>AION Здоровье:</b> В сервисе AION можно <b>вызвать проверенного русскоязычного педиатра прямо на дом</b>. Квалифицированный доктор приедет в ваши апартаменты, проведет полноценный осмотр ребенка, успокоит родителей и назначит схему лечения с местными аналогами проверенных европейских препаратов.
+          </div>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-aion" href="https://t.me/AIONTravelBot/app?startapp=ref_YFOP4TXH" target="_blank">
+            👉 Вызвать педиатра на дом через AION
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. БЬЮТИ-СФЕРА И УХОД -->
+    <section class="section-block" data-category="beauty" id="sec-beauty">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">💇‍♀️</span> Бьюти-сфера: салоны и мастера европейского уровня</h2>
+      </div>
+      <p class="section-intro">Европейские стандарты стерилизации, премиальные красители и мастера, знающие тонкости работы со славянскими волосами и кожей.</p>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Почему экспаты выбирают русскоязычных мастеров</div>
+          <span class="badge-pill badge-top">Стандарты красоты</span>
+        </div>
+        <div class="card-body">
+          <p>Многие девушки после первого похода в дешевые вьетнамские парикмахерские сталкиваются с испорченными волосами или грубым маникюром. Причина — азиатская специфика: вьетнамский волос толстый и жесткий, поэтому местные красители слишком агрессивны для славянских волос, а санитарные нормы в уличных салонах часто формальные.</p>
+          <p>В Нячанге сложилось мощное комьюнити топовых русскоязычных бьюти-мастеров и салонов с русскими владельцами, где используют сухожары и автоклавы для стерилизации, премиальные красители и современный сервис.</p>
+        </div>
+      </div>
+
+      <!-- AION БЬЮТИ -->
+      <div class="card card-aion-native">
+        <div class="card-head">
+          <div class="card-title">💅 Запись к проверенным мастерам в AION</div>
+          <span class="badge-pill badge-aion">AION Бьюти</span>
+        </div>
+        <div class="card-body">
+          <p>В экосистеме <b>AION</b> сформирован надежный каталог проверенных бьюти-мастеров и салонов Нячанга с реальными отзывами и портфолио:</p>
+          <ul class="bullet-list">
+            <li>Сложные окрашивания (Airtouch, балаяж), женские и мужские стрижки;</li>
+            <li>Аппаратный маникюр и педикюр со 100% стерилизацией;</li>
+            <li>Наращивание и ламинирование ресниц, моделирование бровей;</li>
+            <li>Косметология, профессиональный массаж и уходовые спа-процедуры.</li>
+          </ul>
+          <p style="font-size: 13.5px; color: var(--text-muted);">Выбирайте специалиста и записывайтесь напрямую без языкового барьера.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-aion" href="https://t.me/AIONTravelBot/app?startapp=ref_YFOP4TXH" target="_blank">
+            👉 Выбрать салон или мастера в AION
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. ДЕТИ, ШКОЛЫ И САДЫ -->
+    <section class="section-block" data-category="kids" id="sec-kids">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">👶</span> Дети в Нячанге: школы, детсады и секции</h2>
+      </div>
+      <p class="section-intro">Нячанг — комфортная гавань для детей: целебный морской воздух, спелые тропические фрукты и сильное комьюнити заботливых детских садов и школ.</p>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Школы и детские сады в Нячанге</div>
+          <span class="badge-pill badge-top">Образование</span>
+        </div>
+        <div class="card-body">
+          <p>Для семей с детьми в Нячанге создана прекрасная образовательная среда:</p>
+          
+          <div class="op-grid">
+            <div class="op-box">
+              <div class="op-header">
+                <span class="op-name">🏫 Школа и сад Emerald (Эмеральд)</span>
+                <span class="badge-pill badge-aion">Есть в AION</span>
+              </div>
+              <p style="font-size: 14px; margin-bottom: 6px;">Популярнейший образовательный центр на севере города (недалеко от ЖК Oceanus и Scenia Bay). Билингвальная система: первая половина дня — по российской программе (ФГОС), вторая — погружение в английский язык с носителями. Есть дошкольные группы, начальная школа, продленка и сбалансированное питание. Стоимость: ориентировочно <b>$250–$350 в месяц</b>.</p>
+            </div>
+
+            <div class="op-box">
+              <div class="op-header">
+                <span class="op-name">🌟 Школа и детский сад Little Clan</span>
+                <span class="badge-pill badge-aion">Есть в AION</span>
+              </div>
+              <p style="font-size: 14px; margin-bottom: 6px;">Пространство нового поколения с гуманистическим подходом к развитию ребенка. Начальные классы (1–4 класс) и уютный детский сад. Фокус не только на академических предметах по ФГОС, но и на soft skills, эмоциональном интеллекте, творчестве и психологическом комфорте. Маленькие группы и индивидуальный подход. Стоимость: ориентировочно <b>$300–$400 в месяц</b>.</p>
+            </div>
+
+            <div class="op-box">
+              <div class="op-header">
+                <span class="op-name">☀️ Детский сад Sun Kids</span>
+                <span class="badge-pill badge-aion">Есть в AION</span>
+              </div>
+              <p style="font-size: 14px; margin-bottom: 6px;">Уютный русскоязычный детский сад с заботливой и теплой семейной атмосферой. Развивающие занятия в игровой форме, творческие мастерские, музыка, бережная социализация и мягкая адаптация малышей, активные прогулки на свежем воздухе и вкусное сбалансированное детское меню. Прекрасный выбор для раннего возраста. Стоимость: ориентировочно <b>$200–$300 в месяц</b>.</p>
+            </div>
+
+            <div class="op-box">
+              <div class="op-header">
+                <span class="op-name">🌏 Международные школы</span>
+                <span class="badge-pill badge-info">International</span>
+              </div>
+              <p style="font-size: 14px;">Для англоязычного обучения в городе открыты <b>Singapore International School (SIS Nha Trang)</b> и <b>iSchool</b> с кембриджской программой. Обучение полностью на английском языке, интернациональная среда. Стоимость: от <b>$500–$800 в месяц</b>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AION ДЕТИ -->
+      <div class="card card-aion-native">
+        <div class="card-head">
+          <div class="card-title">🧸 Детские секции, няни и сады в AION</div>
+          <span class="badge-pill badge-aion">AION Дети</span>
+        </div>
+        <div class="card-body">
+          <p>В приложении <b>AION</b> собрана полная база проверенных семейных контактов города:</p>
+          <ul class="bullet-list">
+            <li>Прямые контакты и запись в детские сады и школы: <b>Emerald</b>, <b>Little Clan</b> и <b>Sun Kids</b>;</li>
+            <li>Анкетированные няни с подтвержденным опытом и рекомендациями от экспатов;</li>
+            <li>Развивающие секции для детей: школа плавания, шахматы, рисование, танцы, серфинг.</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-aion" href="https://t.me/AIONTravelBot/app?startapp=ref_YFOP4TXH" target="_blank">
+            👉 Открыть раздел для детей в AION
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. КЛАССНЫЕ КОФЕЙНИ НЯЧАНГА -->
+    <section class="section-block" data-category="coffee" id="sec-coffee">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">☕</span> Топ-8 атмосферных кофеен Нячанга</h2>
+      </div>
+
+      <div class="section-intro">
+        Вьетнам — кофейная столица Юго-Восточной Азии с уникальной культурой: от традиционного робуста-фильтра с густой сгущенкой и кокосовым мороженым до трендовых бионических пространств и тихих садов для работы за ноутбуком. Собрали 8 главных кофеен с неповторимой атмосферой.
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">1. Rainforest (Домик на дереве в джунглях)</div>
+          <span class="badge-pill badge-top">Культовое место</span>
+        </div>
+        <div class="card-body">
+          <p>Легендарное трехэтажное эко-пространство в форме гигантского домика на дереве: живые водопады, подвесные мостики, растения и даже горка со второго этажа. Лучший спешелти-кофе, питательные смузи-боулы и тропические десерты. Идеально для утреннего вдохновения и ярких фото.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Rainforest+Nha+Trang" target="_blank">
+            📍 Rainforest на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">2. Cộng Cà Phê (Конг Кафе)</div>
+          <span class="badge-pill badge-lifehack">Кокосовый кофе №1</span>
+        </div>
+        <div class="card-body">
+          <p>Знаменитая сеть с неповторимой ретро-эстетикой социалистического Вьетнама 70-х: зеленые тона, старинные книги и деревянная мебель. Обязательно закажите легендарный <b>Cà phê cốt dừa</b> — холодный кофе с густым кокосовым мороженым, а также кокосовый зеленый чай матча.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Cong+Ca+Phe+Nguyen+Thien+Thuat+Nha+Trang" target="_blank">
+            📍 Cộng Cà Phê на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">3. An Cafe (Зеленый оазис для работы)</div>
+          <span class="badge-pill badge-info">Номадам с ноутбуком</span>
+        </div>
+        <div class="card-body">
+          <p>Тихий оазис посреди шумного центра: старинная вьетнамская архитектура из темного дерева, журчащие прудики с рыбками кои, много тени и зелени. Отличный стабильный Wi-Fi, розетки у большинства столиков и спокойная ненавязчивая музыка — фаворит айтишников и удаленщиков.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=An+Cafe+Le+Quy+Don+Nha+Trang" target="_blank">
+            📍 An Cafe на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">4. Ola Cafe (Архитектурный шедевр)</div>
+          <span class="badge-pill badge-top">Эстетика и дизайн</span>
+        </div>
+        <div class="card-body">
+          <p>Кофейня с уникальным бионическим дизайном, напоминающим футуристическую глиняную пещеру или дома Гауди в Барселоне. Терракотовые своды, внутренний дворик с пальмами и качественный колд-брю. Сюда стоит зайти хотя бы ради архитектурного восторга.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Ola+Cafe+Nha+Trang" target="_blank">
+            📍 Ola Cafe на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">5. Iced Coffee Simply Original</div>
+          <span class="badge-pill badge-lifehack">Европейский спешелти</span>
+        </div>
+        <div class="card-body">
+          <p>Для тех, кто соскучился по правильному флэт-уайту, капучино из свежеобжаренной арабики и классическим круассанам. Стильный лофтовый интерьер, мощные кондиционеры, просторные столы для работы и отличный выбор альтернативного кофе (V60, аэропресс).</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Iced+Coffee+Simply+Original+Nha+Trang" target="_blank">
+            📍 Iced Coffee на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">6. Tiệm Cà Phê Tròn (Уютный бохо-дворик)</div>
+          <span class="badge-pill badge-info">Скрытая жемчужина</span>
+        </div>
+        <div class="card-body">
+          <p>Спрятанный в тихом переулке аутентичный дворик в японско-скандинавском стиле джапанди: светлое дерево, бумажные фонарики, винтажные пластинки и вкусный холодный чай с персиком и лотосом. Место, где время будто останавливается.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Tiem+Ca+Phe+Tron+Nha+Trang" target="_blank">
+            📍 Tiệm Tròn на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">7. CCCP Coffee (Экспатский ретро-клуб)</div>
+          <span class="badge-pill badge-top">Вайб и общение</span>
+        </div>
+        <div class="card-body">
+          <p>Популярная точка сбора русскоязычного комьюнити Нячанга. Ретро-атрибутика, приятные цены, крепкий традиционный вьетнамский кофе со сгущенкой (Cà phê sữa đá), свежая выпечка и всегда знакомые лица за соседними столиками.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=CCCP+Coffee+Nha+Trang" target="_blank">
+            📍 CCCP Coffee на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">8. Góc Hà Nội Cafe (Настоящий яичный кофе)</div>
+          <span class="badge-pill badge-lifehack">Ханойский рецепт</span>
+        </div>
+        <div class="card-body">
+          <p>Хотите попробовать настоящий аутентичный <b>Cà phê trứng (яичный кофе)</b> по старинному ханойскому рецепту? Вам сюда. Взбитый нежнейший сливочно-яичный крем поверх обжигающего крепкого кофе подается в чаше с горячей водой. Вкус — как жидкий десерт тирамису.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Goc+Ha+Noi+Cafe+Nha+Trang" target="_blank">
+            📍 Góc Hà Nội на карте
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. РУФТОПЫ И ПАНОРАМНЫЕ БАРЫ -->
+    <section class="section-block" data-category="rooftops" id="sec-rooftops">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">🍸</span> Топ-8 руфтопов и видовых баров</h2>
+      </div>
+
+      <div class="section-intro">
+        Вечерний Нячанг с высоты птичьего полета — отдельный вид эстетического удовольствия. Панорамные террасы на крышах небоскребов, бары у инфинити-бассейнов, закатный морской бриз, авторские коктейли и живая музыка. Вот топ-8 лучших видовых руфтопов курорта.
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">1. Skylight Nha Trang (43-й этаж Havana)</div>
+          <span class="badge-pill badge-top">Панорама 360°</span>
+        </div>
+        <div class="card-body">
+          <p>Самый знаменитый руфтоп города на высоте 141 метр над землей. Круговая обзорная площадка с обзором на весь залив и горы, стеклянный мост Skywalk над бездной, действующий маяк, авторский ресторан и вечеринки с международными диджеями после 20:00.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Skylight+Nha+Trang" target="_blank">
+            📍 Skylight на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">2. Altitude Rooftop Bar (28-й этаж Sheraton)</div>
+          <span class="badge-pill badge-lifehack">Идеальный закат</span>
+        </div>
+        <div class="card-body">
+          <p>Изысканный лаунж под открытым небом на 28-м этаже 5-звездочного отеля Sheraton. Лучшее место в городе для встречи заката: приходите к 17:15, занимайте диванчики у стеклянного бортика и наслаждайтесь золотым светом над бухтой под приятный дип-хаус.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Altitude+Rooftop+Bar+Sheraton+Nha+Trang" target="_blank">
+            📍 Altitude на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">3. The Busa Park (Скалистый ресторан с видом)</div>
+          <span class="badge-pill badge-top">Романтика и бриз</span>
+        </div>
+        <div class="card-body">
+          <p>Стильный многоуровневый ресторан-бар на набережной Trần Phú, каскадом спускающийся прямо к морю. Просторная терраса с видом на волны, европейское меню с акцентом на морепродукты и живая музыка по вечерам.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=The+Busa+Park+Nha+Trang" target="_blank">
+            📍 The Busa Park на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">4. Sailing Club Nha Trang (Легенда на песке)</div>
+          <span class="badge-pill badge-lifehack">Культ с 1994 года</span>
+        </div>
+        <div class="card-body">
+          <p>Главный пляжный клуб города прямо на песке у воды. Днем — расслабленный пляжный отдых на шезлонгах с пиццей из дровяной печи, вечером — романтический ужин при свечах, а ближе к ночи — танцы босиком на песке и зрелищные огненные шоу.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Sailing+Club+Nha+Trang" target="_blank">
+            📍 Sailing Club на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">5. East West Brewing Co. (Крафт на крыше)</div>
+          <span class="badge-pill badge-info">Крафтовое пиво</span>
+        </div>
+        <div class="card-body">
+          <p>Собственная крафтовая пивоварня прямо на первой линии моря! Огромная открытая крыша с панорамным видом на океан, десятки сортов свежесваренного IPA, стаутов и сидров, плюс отличное мясное BBQ-меню.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=East+West+Brewing+Nha+Trang" target="_blank">
+            📍 East West Brewing на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">6. Poc Poc Horizon Rooftop (31-й этаж на севере)</div>
+          <span class="badge-pill badge-top">Северный гигант</span>
+        </div>
+        <div class="card-body">
+          <p>Самый высокий руфтоп северной части города в отеле Horizon. Отсюда открывается совершенно другой ракурс: потрясающий вид на острова Hon Chong, горные хребты и бескрайний океан. Очень просторно, свежо и нет толп туристов из центра.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Poc+Poc+Horizon+Nha+Trang" target="_blank">
+            📍 Poc Poc Horizon на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">7. Virgo Hotel 28th Floor Rooftop & Pool</div>
+          <span class="badge-pill badge-lifehack">Инфинити-бассейн</span>
+        </div>
+        <div class="card-body">
+          <p>Панорамный бар у инфинити-бассейна на 28 этаже современного отеля Virgo в самом центре. Отличные счастливые часы (Happy Hours 1+1 на коктейли) и шикарный вид на огни ночного Нячанга.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Virgo+Hotel+Nha+Trang" target="_blank">
+            📍 Virgo Hotel на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">8. Guru Sports Bar Rooftop (Набережная Trần Phú)</div>
+          <span class="badge-pill badge-info">Музыка и драйв</span>
+        </div>
+        <div class="card-body">
+          <p>Открытый второй и третий этаж с прямым видом на пальмовую аллею и ночной пляж. Большие экраны для спортивных трансляций, живые кавер-группы каждый вечер и отличный выбор напитков.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Guru+Sports+Bar+Nha+Trang" target="_blank">
+            📍 Guru Sports Bar на карте
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. ПЛЯЖИ НЯЧАНГА И ОКРЕСТНОСТЕЙ -->
+    <section class="section-block" data-category="beaches" id="sec-beaches">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">🏖️</span> Топ-8 пляжей: где купаться без волн и суеты</h2>
+      </div>
+
+      <div class="section-intro">
+        Береговая линия провинции Кханьхоа протянулась на десятки километров — от оживленной городской набережной с пальмами до уединенных бухт с белоснежным коралловым песком, пологим входом без волн для малышей и нетронутых скалистых мысов. Выбирайте идеальный пляж под ваше настроение!
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">1. Городской центральный пляж (Trần Phú)</div>
+          <span class="badge-pill badge-top">Главный пляж</span>
+        </div>
+        <div class="card-body">
+          <p>Широкая 7-километровая полоса золотистого песка вдоль тенистой пальмовой набережной. Утром с 6:00 до 9:00 — чистейшая прозрачная вода, комфортное плавание, шезлонги с зонтиками, душ и уличные тренажеры прямо на песке.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Tran+Phu+Beach+Nha+Trang" target="_blank">
+            📍 Пляж Чан Фу на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">2. Северный пляж Хон Чонг (Hòn Chồng / Ba Làng)</div>
+          <span class="badge-pill badge-lifehack">Спокойная вода зимой</span>
+        </div>
+        <div class="card-body">
+          <p>Любимый пляж зимовщиков. Мыс Хон Чонг естественным образом гасит сезонные океанские волны, поэтому даже с ноября по февраль, когда в центре штормит, на севере вода гораздо спокойнее, а вход в море пологий и мягкий.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Hon+Chong+Beach+Nha+Trang" target="_blank">
+            📍 Пляж Хон Чонг на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">3. Пляж Бай Зай (Bãi Dài / Камрань)</div>
+          <span class="badge-pill badge-top">Белый песок и сифуд</span>
+        </div>
+        <div class="card-body">
+          <p>В 25 км к югу от города по живописной трассе в аэропорт. 15 километров белоснежного песка, бирюзовый океан и пологий вход. Вдоль берега работают десятки колоритных кафешек со свежайшими устрицами, гребешками и крабами по приятным локальным ценам.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Bai+Dai+Cam+Ranh" target="_blank">
+            📍 Пляж Бай Зай на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">4. Закрытая лагуна Ан Вьен (Bãi tắm An Viên)</div>
+          <span class="badge-pill badge-info">Без волн круглый год</span>
+        </div>
+        <div class="card-body">
+          <p>Искусственная защищенная бухта в южном элитном поселке An Vien. Благодаря волнорезам здесь полный штиль и гладкая как зеркало вода 365 дней в году. Идеальное и безопасное место для плавания с маленькими детьми и сапсерфинга.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=An+Vien+Beach+Nha+Trang" target="_blank">
+            📍 Лагуна Ан Вьен на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">5. Пляж Док Лет (Bãi biển Dốc Lết)</div>
+          <span class="badge-pill badge-top">Вьетнамские Мальдивы</span>
+        </div>
+        <div class="card-body">
+          <p>Находится в 45 км к северу от города. Мелкий белый песок, кокосовые пальмы, свисающие к воде, прозрачнейшая лазурная вода и очень мелкий безопасный заход. Стоит поехать на весь день на байке или такси ради райских тропических фотосессий.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Doc+Let+Beach+Khanh+Hoa" target="_blank">
+            📍 Пляж Док Лет на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">6. Островной пляж Бай Чань (Bãi Tranh / Hon Mieu)</div>
+          <span class="badge-pill badge-info">Снорклинг и катер</span>
+        </div>
+        <div class="card-body">
+          <p>Живописный островной пляж всего в 10–15 минутах на скоростном катере от южного порта. Уникален тем, что разделен на песчаную и галечную зоны. Кристально чистое море, коралловые рифы для снорклинга, парасейлинг и гидроциклы.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Bai+Tranh+Nha+Trang" target="_blank">
+            📍 Пляж Бай Чань на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">7. Пляж Бай Тьен (Bãi Tiên — скалистая бухта)</div>
+          <span class="badge-pill badge-lifehack">Дикая природа</span>
+        </div>
+        <div class="card-body">
+          <p>Расположен на северной прибрежной трассе за мысом Хон Чонг. Живописная каменистая бухта у подножия зеленых гор, где нет плотной застройки. Сюда приезжают встречать рассвет, устраивать пикники и любоваться разбивающимися о скалы волнами.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Bai+Tien+Nha+Trang" target="_blank">
+            📍 Пляж Бай Тьен на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">8. Пляж Дай Лань (Bãi biển Đại Lãnh)</div>
+          <span class="badge-pill badge-top">Нетронутый простор</span>
+        </div>
+        <div class="card-body">
+          <p>Широченный безлюдный залив в часе езды на север на границе провинций Кханьхоа и Фуйен. Величественные горы, подступающие к бирюзовому океану, сосновые рощи вдоль берега и полное ощущение единения с дикой природой Вьетнама.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-map" href="https://www.google.com/maps/search/?api=1&query=Dai+Lanh+Beach+Khanh+Hoa" target="_blank">
+            📍 Пляж Дай Лань на карте
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. ТОП ПРИЛОЖЕНИЙ ДЛЯ ЖИЗНИ -->
+    <section class="section-block" data-category="apps" id="sec-apps">
+      <div class="section-header">
+        <h2 class="section-title"><span class="emoji">⚡</span> Чек-лист: обязательные приложения</h2>
+      </div>
+
+      <div class="section-intro">
+        Чтобы чувствовать себя уверенно с первых минут в Нячанге, заранее установите базовый цифровой набор приложений. Они сэкономят вам часы времени, избавят от языкового барьера и защитят от переплат.
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Что скачать на смартфон перед поездкой</div>
+          <span class="badge-pill badge-top">Must-Have</span>
+        </div>
+        <div class="card-body">
+          <ul class="bullet-list">
+            <li><b>AION — экосистема жизни экспата:</b> проверенная аренда жилья без комиссий, аренда надежных байков, вызов русскоязычного педиатра на дом, сертифицированные бьюти-мастера, проверенный обмен валюты, детские школы (Emerald, Little Clan) и бытовые услуги в едином окне.</li>
+            <li><b>Xanh SM:</b> комфортное, быстрое и тихое электротакси без запаха бензина.</li>
+            <li><b>Maxim:</b> самое экономное байк-такси для поездок по городу.</li>
+            <li><b>Shopee & Lazada:</b> маркетплейсы для любых товаров с доставкой и оплатой наличными при получении.</li>
+            <li><b>Google Translate:</b> мгновенный перевод надписей и меню через камеру смартфона.</li>
+            <li><b>Zalo:</b> главный вьетнамский мессенджер для общения с хозяевами квартир, службой воды и локальным сервисом.</li>
+            <li><b>Capichi & GrabFood:</b> доставка вкусной готовой еды на дом.</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <a class="btn-action btn-aion" href="https://t.me/AIONTravelBot/app?startapp=ref_YFOP4TXH" target="_blank">
+            🚀 Запустить экосистему AION
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast">✓ Скопировано в буфер!</div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Сохраняй этот гайд в закладки браузера и делись с друзьями! ☀️🌴</p>
+    <p style="margin-top: 8px; font-size: 12.5px; color: #94A3B8;">Нячанг Инсайдер • Твой комфортный отдых и зимовка во Вьетнаме</p>
+  </footer>
+
+  <script>
+    // Прокрутка табов стрелочками влево-вправо
+    function scrollTabs(amount) {
+      const tabBar = document.getElementById('tabBar');
+      tabBar.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+
+    // Фильтрация по темам
+    function filterCategory(cat, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      if (btn) {
+        btn.classList.add('active');
+        btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+
+      const sections = document.querySelectorAll('.section-block');
+      sections.forEach(sec => {
+        if (cat === 'all' || sec.getAttribute('data-category') === cat) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    // Умный живой поиск
+    function handleSearch() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const clearBtn = document.getElementById('clearBtn');
+      clearBtn.style.display = query ? 'block' : 'none';
+
+      const cards = document.querySelectorAll('.card');
+      const sections = document.querySelectorAll('.section-block');
+
+      if (!query) {
+        cards.forEach(c => c.style.display = 'block');
+        sections.forEach(s => s.style.display = 'block');
+        return;
+      }
+
+      // Сброс активного таба на "Все темы" при поиске
+      document.querySelectorAll('.tab-btn').forEach((b, idx) => {
+        if (idx === 0) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+
+      sections.forEach(sec => {
+        let hasMatch = false;
+        const secCards = sec.querySelectorAll('.card');
+        
+        secCards.forEach(card => {
+          const text = card.innerText.toLowerCase();
+          if (text.includes(query)) {
+            card.style.display = 'block';
+            hasMatch = true;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        sec.style.display = hasMatch ? 'block' : 'none';
+      });
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      handleSearch();
+    }
+
+    // Копирование в буфер
+    function copyText(text, msg) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(msg || 'Скопировано в буфер!');
+      }).catch(err => {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast(msg || 'Скопировано!');
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
